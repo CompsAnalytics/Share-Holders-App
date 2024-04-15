@@ -1,5 +1,6 @@
 import { LockOutlined, UserOutlined } from '@ant-design/icons';
 import { Button, Checkbox, Form, Input } from 'antd';
+import DividendList from '../Reports/DividendList';
 import React from 'react';
 
 import {Link } from 'react-router-dom';
@@ -33,7 +34,7 @@ const Login = () => {
       console.log("sign in res ", data);
       localStorage.setItem('access', data.token);
       localStorage.setItem('member', data.memberNo);
-      const memNo =data.memberNo;
+     const memNo =data.memberNo;
 
         alert("login Successful" );
         window.location.replace("/app");
@@ -113,7 +114,7 @@ const Login = () => {
         </a> </Link>
       </Form.Item>
       </div>
-      
+      {/* <DividendList memno={memNo}/> */}
       </div>
       
     </Form>

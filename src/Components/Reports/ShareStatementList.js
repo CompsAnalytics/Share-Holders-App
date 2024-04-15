@@ -1,11 +1,11 @@
 import React from 'react'
 
-const Dividends = ({date,item,reference,dividend,paid}) => {
+const ShareStatementList = () => {
 
-  
-    
+
   return (
-   <tr>
+    
+        <tr>
     
     <td>{date}</td>
     <td>{item}</td>
@@ -14,6 +14,9 @@ const Dividends = ({date,item,reference,dividend,paid}) => {
     <td>{paid}</td>
    </tr>
   )
+        
+        
+  
 }
 
-export default Dividends
+export default ShareStatementList

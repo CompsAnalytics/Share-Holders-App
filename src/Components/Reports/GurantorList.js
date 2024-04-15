@@ -1,6 +1,8 @@
 import React from 'react'
+import { useEffect,useState } from 'react';
+import Gurantorship from './Gurantorship';
 
-const GurantorList = () => {
+const GurantorList = (member_no) => {
     const [guarantors, setGuarantors] = useState([]);
     const [header, setHeader] = useState([]);
     const [member, setMember] = useState([]);
@@ -109,7 +111,7 @@ const GurantorList = () => {
     
           {guarantors.map(guarantor => {
             return (
-            <LoanStatementList
+            <Gurantorship
             key={guarantor.id}
             id={guarantor.id}
             date={guarantor.date}

@@ -1,6 +1,4 @@
-import { useEffect, useState } from 'react';
 import React from 'react'
-import ShareStatementList from './ShareStatementList';
 import axios from 'axios'
 
 const memberno =localStorage.getItem("member");
@@ -14,7 +12,8 @@ const authAxios =axios.create({
     
   }
 })
-const ShareStatement = () => {
+const ShareCapital = () => {
+
   const [shares, setShares] = useState([]);
   const [header, setHeader] = useState([]);
   const [member, setMember] = useState([]);
@@ -162,4 +161,4 @@ const ShareStatement = () => {
     
 }
 
-export default ShareStatement
+export default ShareCapital

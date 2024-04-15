@@ -18,6 +18,8 @@ import Instant from './Components/Loans/Instant';
 import ChangePassword from './Components/Authentication/ChangePassword';
 import DividendList from './Components/Reports/DividendList';
 import Home from './Components/Landing-Page/Home';
+import LoanStatement from './Components/Reports/LoanStatement';
+import GurantorList from './Components/Reports/GurantorList';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
@@ -39,6 +41,8 @@ root.render(
             <Route path ="/app/SplitDividend" element={<SplitDividend />}/>
             <Route path ="/app/Instant" element={<Instant />}/>
             <Route path ="/app/DividendList" element={<DividendList />}/>
+            <Route path ="/app/LoanStatement" element={<LoanStatement />}/>
+            <Route path ="/app/GurantorList" element={<GurantorList />}/>
         </Route>
         
     </Routes>

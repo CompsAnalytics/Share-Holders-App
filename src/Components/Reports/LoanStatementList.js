@@ -1,6 +1,6 @@
 import React from 'react'
 
-const LoanStatementList = ({loan_no,purpose,cdate,sdate,period,amount}) => {
+const LoanStatementList = ({id,loan_no,purpose,cdate,sdate,period,amount}) => {
   return (
     
     <tr>

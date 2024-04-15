@@ -1,12 +1,15 @@
 import React from 'react'
 import LoanStatementList from './LoanStatementList';
+import { useEffect,useState } from 'react';
 
-const LoanStatement = () => {
+
+const LoanStatement = ({memNo}) => {
+    
     const [loans, setLoans] = useState([]);
     const [header, setHeader] = useState([]);
     const [member, setMember] = useState([]);
     useEffect(() =>{
-    fetch(`http://localhost:8080/api/v1/instant/${member_no}`)
+    fetch(`http://localhost:8080/api/v1/instant/${memNo}`)
     .then((res) => {
       if (res.ok) {
       res.json().then((loans) => setLoans(loans));
@@ -44,10 +47,10 @@ const LoanStatement = () => {
           <p>{header.header}</p>
             <table >
                 <tbody>
-                <tr   >
+                <tr>
                     <th className='full'>Member Statement Summary</th>
                     </tr>
-                <tr >
+                <tr>
                     <th >Name:{member.holders_name}</th>
                     </tr>
                 </tbody>
@@ -55,7 +58,7 @@ const LoanStatement = () => {
         <table>
             <tbody>
            
-                <tr >
+                <tr>
                     <th className='half' >member_no:{member.acc_no}</th>
                     <th className='half'>tel:{member.tel1}</th>
                     </tr>
@@ -76,10 +79,10 @@ const LoanStatement = () => {
     
         </table>
        
-        <table >
+        <table>
         <tbody>
-          { <tr >
-            <th >
+          { <tr>
+            <th>
               <h3 className="ui center aligned header">Loan No</h3>
             </th>
             <th>

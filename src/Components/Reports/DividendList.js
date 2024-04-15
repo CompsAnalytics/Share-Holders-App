@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import Dividends from "../Reports/Dividends";
 import axios from 'axios'
+const memberno =localStorage.getItem("member");
 const apiUrl='http://localhost:8080/api' ;
 const accessToken =localStorage.getItem("access");
 console.log("ACCESS TOKEN FROM LOCAL STORAGE ", accessToken)
@@ -11,19 +12,25 @@ const authAxios =axios.create({
     
   }
 })
-const DividendList = (memNo) => {
+const DividendList = () => {
 const [dividends, setDividends] = useState([]);
 const [header, setHeader] = useState([]);
 const [member, setMember] = useState([]);
+
 //${memberNo}
 useEffect(() =>{
-  authAxios.get(`${apiUrl}/v1/dividend`)
+  authAxios.get(`${apiUrl}/v1/dividendPayable/${memberno}`)
 .then((res) => {
-  if (res.ok) {
-  res.json().then((dividends) => setDividends(dividends));
-} 
+  
+  // if (res.ok) {
+  setDividends(res.data);
+  console.log('res dividend ', res.data);
+
+// } 
 
       
+    }).catch(error =>{
+      console.log(error);
     });
 
 },[])
@@ -31,21 +38,25 @@ useEffect(() =>{
 useEffect(() =>{
   authAxios.get(`${apiUrl}/v1/header`)
   .then((res) => {
-    if (res.ok) {
-      res.json() .then((header) => setHeader(header));
-  } 
+    console.log('res header ', res.data)
+      setHeader(res.data);
+   
  
         
+      }).catch(error=>{
+        console.log(error);
       });
   
   },[])
    
   useEffect(()=> {
-    authAxios.get(`${apiUrl}/v1/member/MS317`)
-    .then((response) => {
-        if (response.ok) {
-          response.json().then((member) => setMember(member));
-        }
+    authAxios.get(`${apiUrl}/v1/member/${memberno}`)
+    .then((res) => {
+      console.log('res member ', res.data)
+      // if (res.ok) {
+      setMember(res.data);
+      }).catch(error =>{
+        console.log(error);
       });
     },
 [])
@@ -60,12 +71,17 @@ useEffect(() =>{
                 
                 </tr>
                 <tr   >
+              <th className='full'> member No{memberno}</th>
+                
+                </tr>
+                <tr   >
               
                 <th className='full'>Dividend Statement</th>
                 </tr>
                 
             <tr >
                 <th >Name:{member.holdersName}</th>
+                
                 </tr>
             </tbody>
         </table>
@@ -86,8 +102,7 @@ useEffect(() =>{
                     <tbody>
                 <tr>
                 <th>Print Date</th>
-                <th>Shares</th>
-                <th>Shares</th>
+                
                 </tr>
         </tbody>
 
@@ -118,20 +133,22 @@ useEffect(() =>{
         </th>
         
       </tr> }
+      
 
       {dividends.map(dividend => {
-        return (
+        return ( 
         <Dividends
         key={dividend.id}
-        id={dividend.id}
-        loanno={dividend.AccName}
-        purpose={dividend.accNo}
-        amount={dividend.amount}
+        date={dividend.date}
+        item={dividend.item}
+        reference={dividend.referenceNo}
+        dividend={dividend.credit}
+        paid={dividend.debit}
        
         />
-      );
-        }
-      ) 
+       );
+        } 
+      )
     }
     
     

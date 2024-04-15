@@ -71,6 +71,12 @@ const Navbar = () => (
           <Menu.Item>
            <Link to="/app/DividendList"> Dividend List</Link>
           </Menu.Item>
+          <Menu.Item>
+           <Link to="/app/LoanStatement"> Loan Statement List</Link>
+          </Menu.Item>
+          <Menu.Item>
+           <Link to="/app/GurantorList">Gurantor List</Link>
+          </Menu.Item>
             </Menu>
 
             
