@@ -20,7 +20,7 @@ const ShareCapital = () => {
   
   //${memberNo}
   useEffect(() =>{
-    authAxios.get(`${apiUrl}/v1/dividendPayable/${memberno}`)
+    authAxios.get(`${apiUrl}/v1/shareCapital/${memberno}`)
   .then((res) => {
     
     // if (res.ok) {
@@ -123,11 +123,14 @@ const ShareCapital = () => {
   
           </th>
           <th>
-            <h3 className="ui center aligned header">Dividend</h3>
+            <h3 className="ui center aligned header">Account</h3>
             
           </th>
           <th>
-            <h3 className="ui center aligned header">Paid</h3>
+            <h3 className="ui center aligned header">Wdrawn</h3>
+          </th>
+          <th>
+            <h3 className="ui center aligned header">Savings</h3>
           </th>
           <th>
             <h3 className="ui center aligned header">Running Amt</h3>
@@ -143,8 +146,10 @@ const ShareCapital = () => {
           date={share.date}
           item={share.item}
           reference={share.referenceNo}
-          dividend={share.credit}
-          paid={share.debit}
+          receipt={share.receiptNo}
+          wdrawn={share.debit}
+          savings={share.credit}
+         
          
           />
          );
