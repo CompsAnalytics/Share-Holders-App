@@ -1,6 +1,6 @@
 import React from 'react'
 
-const ShareCapitalList = ({date,item,reference,dividend,paid}) => {
+const ShareCapitalList = ({date,item,reference,receipt,wdrawn,savings}) => {
   return (
    
     <tr>
@@ -8,8 +8,9 @@ const ShareCapitalList = ({date,item,reference,dividend,paid}) => {
     <td>{date}</td>
     <td>{item}</td>
     <td>{reference}</td>
-    <td>{dividend}</td>
-    <td>{paid}</td>
+    <td>{receipt}</td>
+    <td>{wdrawn}</td>
+    <td>{savings}</td>
    </tr>
   )
 }
