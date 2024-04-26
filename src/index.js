@@ -20,6 +20,8 @@ import DividendList from './Components/Reports/DividendList';
 import Home from './Components/Landing-Page/Home';
 import LoanStatement from './Components/Reports/LoanStatement';
 import GurantorList from './Components/Reports/GurantorList';
+import ShareCapital from './Components/Reports/ShareCapital';
+import ShareStatement from './Components/Reports/ShareStatement';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
@@ -43,6 +45,8 @@ root.render(
             <Route path ="/app/DividendList" element={<DividendList />}/>
             <Route path ="/app/LoanStatement" element={<LoanStatement />}/>
             <Route path ="/app/GurantorList" element={<GurantorList />}/>
+            <Route path ="/app/ShareCapital" element={<ShareCapital />}/>
+            <Route path ="/app/ShareStatement" element={<ShareStatement />}/>
         </Route>
         
     </Routes>
