@@ -1,138 +1,170 @@
 import React from 'react'
 import { useEffect,useState } from 'react';
 import Gurantorship from './Gurantorship';
+import axios from 'axios'
+const memberno =localStorage.getItem("member");
+const apiUrl='http://localhost:8080/api' ;
+const accessToken =localStorage.getItem("access");
+console.log("ACCESS TOKEN FROM LOCAL STORAGE ", accessToken)
+const authAxios =axios.create({
+  // baseUrl:'http://localhost:8080/api',
+  headers: {
+    Authorization:`Bearer ${accessToken}`,
+    
+  }
+})
+const GurantorList = () => {
+const [guarantors, setGuarantors] = useState([]);
+const [header, setHeader] = useState([]);
+const [member, setMember] = useState([]);
 
-const GurantorList = (member_no) => {
-    const [guarantors, setGuarantors] = useState([]);
-    const [header, setHeader] = useState([]);
-    const [member, setMember] = useState([]);
-    useEffect(() =>{
-    fetch(`http://localhost:8080/api/v1/instant/${member_no}`)
-    .then((res) => {
-      if (res.ok) {
-      res.json().then((guarantors) => setGuarantors(guarantors));
-    } 
-    
-          
-        });
-    
-    },[])
-    
-    useEffect(() =>{
-      fetch("http://localhost:8080/api/v1/header")
-      .then((res) => {
-        if (res.ok) {
-          res.json() .then((header) => setHeader(header));
-      } 
-     
-            
-          });
+//${memberNo}
+useEffect(() =>{
+  authAxios.get(`${apiUrl}/v1/guarantor/${memberno}`)
+.then((res) => {
+  
+  // if (res.ok) {
+  setGuarantors(res.data.data);
+  console.log('guarantorrrrrrrrrr dividend ', res.data);
+
+// } 
+
       
-      },[])
-       
-      useEffect(()=> {
-        fetch("http://localhost:8001/member/1")
-        .then((response) => {
-            if (response.ok) {
-              response.json().then((member) => setMember(member));
-            }
-          });
-        },
-    [])
-    
-      return (
-        <div>
-          <p>{header.header}</p>
-            <table >
-                <tbody>
-                <tr   >
-                    <th className='full'>Guarontorship Statement Summary</th>
-                    </tr>
-                <tr >
-                    <th >Name:{member.holders_name}</th>
-                    </tr>
-                </tbody>
-            </table>
-        <table>
-            <tbody>
-           
-                <tr >
-                    <th className='half' >member_no:{member.acc_no}</th>
-                    <th className='half'>tel:{member.tel1}</th>
-                    </tr>
-                    <tr>
-                    <th>email:{member.email_add}</th>
-                    <th>Id no:{member.id_no}</th>
-                    </tr>
-                    </tbody>
-                    </table>
-                    <table>
-                        <tbody>
-                    <tr>
-                    <th>Print Date</th>
-                    <th>Shares</th>
-                    <th>Shares</th>
-                    </tr>
-            </tbody>
-    
-        </table>
-       
+    }).catch(error =>{
+      console.log(error);
+    });
+
+},[])
+
+useEffect(() =>{
+  authAxios.get(`${apiUrl}/v1/header/1`)
+  .then((res) => {
+    console.log('res header ', res.data)
+      setHeader(res.data);
+   
+ 
+        
+      }).catch(error=>{
+        console.log(error);
+      });
+  
+  },[])
+   
+  useEffect(()=> {
+    authAxios.get(`${apiUrl}/v1/member/${memberno}`)
+    .then((res) => {
+      console.log('res member ', res.data)
+      // if (res.ok) {
+      setMember(res.data);
+      }).catch(error =>{
+        console.log(error);
+      });
+    },
+[])
+
+
+  return (
+    <div>
+      {/* <p>header{header.header}</p> */}
         <table >
-        <tbody>
-          { <tr >
-            <th>
-              <h3 className="ui center aligned header">Date</h3>
-            </th>
-            <th >
-              <h3 className="ui center aligned header">Loan No</h3>
-            </th>
-            <th>
-              <h3 className="ui center aligned header">Loan Type</h3>
-            </th>
-            <th>
-              <h3 className="ui center aligned header">Name</h3>
-    
-            </th>
-            <th>
-              <h3 className="ui center aligned header">Loan Amount</h3>
+            <tbody>
+            <tr   >
+               <th className='full'> <p>{header.organisationName}</p><break></break><p>Address:{header.boxNo} {header.postalCode}</p><p><break></break>Tel:{header.mainTelNo}{header.otherTelNo}</p><break></break>Email:{header.email} Website:{header.website}<p></p>
+                </th> 
+                </tr>
+                <tr   >
               
-            </th>
-            <th>
-              <h3 className="ui center aligned header"> AmtGuaranteed</h3>
-            </th>
-            <th>
-              <h3 className="ui center aligned header">Loan Balance</h3>
-            </th>
-            <th>
-              <h3 className="ui center aligned header"> Guarantor Level</h3>
-            </th>
-            
-          </tr> }
-    
-          {guarantors.map(guarantor => {
-            return (
-            <Gurantorship
-            key={guarantor.id}
-            id={guarantor.id}
-            date={guarantor.date}
-            loanno={guarantor.loan_no}
-            purpose={guarantor.lpurpose}
-            member={guarantor.member_name}
-            amount={guarantor.lamount}
-            gamount={guarantor.amtg}
-            
-            />
-          );
-            }
-          ) 
-        }
-        
-        
-        
+                <th className='full'>Dividend Statement</th>
+                </tr>
+                
+            <tr >
+                <th >Name:{member.holdersName}</th>
+                
+                </tr>
+            </tbody>
+        </table>
+    <table>
+        <tbody>
+       
+            <tr >
+                <th className='half' >member_no:{member.accNo}</th>
+                <th className='half'>tel:{member.tel1}</th>
+                </tr>
+                <tr>
+                 <th>email:{member.emailAdd}</th> 
+                <th>Id no:{member.idNo}</th>
+                </tr>
+                </tbody>
+                </table>
+                <table>
+                    <tbody>
+                <tr>
+                <th>Print Date</th>
+                
+                </tr>
         </tbody>
-      </table>
-      </div>
-    );
+
+    </table>
+   
+    <table >
+    <tbody>
+      { <tr >
+        <th >
+          <h3 className="ui center aligned header">Date</h3>
+        </th>
+        <th>
+          <h3 className="ui center aligned header">Loan No</h3>
+        </th>
+        <th>
+          <h3 className="ui center aligned header">Loan type</h3>
+
+        </th>
+        <th>
+          <h3 className="ui center aligned header">Name</h3>
+          
+        </th>
+        <th>
+          <h3 className="ui center aligned header">Loan Amount</h3>
+        </th>
+        <th>
+          <h3 className="ui center aligned header">Amt Guaranteed</h3>
+        </th>
+        <th>
+          <h3 className="ui center aligned header">Loan Balance</h3>
+        </th>
+        <th>
+          <h3 className="ui center aligned header">Guarantor Level</h3>
+        </th>
+        
+      </tr> }
+      
+
+      {guarantors.map(guarantor => {
+        return ( 
+        <Gurantorship
+        key={guarantor.id}
+        date={guarantor.cdate}
+        loanno={guarantor.loanNo}
+        purpose={guarantor.loanPurpose}
+        member={guarantor.memberName}
+        amount={guarantor.lamount}
+        gamount={guarantor.amountGuaranteed}
+        outstanding={guarantor.outstanding}
+        gtype={guarantor.guarantorType}
+       
+        />
+       );
+        } 
+      )
+    }
+    
+    
+    
+    </tbody>
+  </table>
+  </div>
+);
+    
 }
 
 export default GurantorList
