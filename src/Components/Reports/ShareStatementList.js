@@ -1,17 +1,24 @@
 import React from 'react'
 
-const ShareStatementList = () => {
-
+const ShareStatementList = ({date,item,reference,receipt,sold,bought}) => {
+  //var total = 0;
+  // $("th:nth-child(6)").each(function( index ) {
+  //   total = parseInt($(this).text()) + parseInt(total);
+  //   $(this).next('th').text(total);
+  // })
 
   return (
     
         <tr>
     
-    <td>{date}</td>
-    <td>{item}</td>
-    <td>{reference}</td>
-    <td>{dividend}</td>
-    <td>{paid}</td>
+    <th>{date}</th>
+    <th>{item}</th>
+    <th>{reference}</th>
+    <th>{receipt}</th>
+    <th>{sold}</th>
+    <th>{bought}</th>
+
+    <th></th>
    </tr>
   )
         
