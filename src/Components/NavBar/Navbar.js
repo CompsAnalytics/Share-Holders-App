@@ -4,8 +4,9 @@ import React from 'react';
 import './Navbar.css'
 import "antd/dist/antd.min.css"
 import { Link, NavLink, Outlet } from 'react-router-dom';
-
+const memberno =localStorage.getItem("member");
 const { Header, Content, Sider } = Layout;
+
 
 
 const Navbar = () => (
@@ -30,7 +31,7 @@ const Navbar = () => (
           padding: '0 24px 24px', float: 'right'
         }}>Log Out</NavLink>
         <NavLink 
-        >Member No <p id='memno' style={{
+        >Member No  {memberno} <p id='memno' style={{
           backgroundcolor: 'red',width:'10px'
         }} text/></NavLink>
     </Header>
@@ -50,8 +51,10 @@ const Navbar = () => (
 
          
          
-          <Menu.Item>
-           <Link to="/app/AddMemberForm"> Create New Member</Link>
+         {/* <Menu.Item>
+
+            
+            <Link to="/app/AddMemberForm"> Create New Member</Link>
           </Menu.Item>
           <Menu.Item>
            <Link to="/app/AddLoanForm"> Register Loan </Link>
@@ -61,13 +64,13 @@ const Navbar = () => (
           </Menu.Item>
           <Menu.Item>
            <Link to="/app/SplitDividend"> Split Dividend</Link>
-          </Menu.Item>
+          </Menu.Item> */}
           <Menu.Item>
            <Link to="/app/MemberDetails"> Member Profile</Link>
           </Menu.Item>
-          <Menu.Item>
+          {/* <Menu.Item>
            <Link to="/app/Instant"> Instant</Link>
-          </Menu.Item>
+          </Menu.Item> */}
           <Menu.Item>
            <Link to="/app/DividendList"> Dividend List</Link>
           </Menu.Item>
@@ -77,10 +80,18 @@ const Navbar = () => (
           <Menu.Item>
            <Link to="/app/GurantorList">Gurantor List</Link>
           </Menu.Item>
+          <Menu.Item>
+           <Link to="/app/ShareCapital">Share Capital List</Link>
+          </Menu.Item>
+          <Menu.Item>
+           <Link to="/app/ShareStatement">Share Statement</Link>
+          </Menu.Item>
             </Menu>
 
-            
+           
       </Sider>
+
+      
       <Layout
         style={{
           padding: '0 24px 24px',
@@ -95,9 +106,12 @@ const Navbar = () => (
             minHeight: 280,
           }}
         >
+
+
+          
           
           <Outlet/>
-
+        
         </Content>
       </Layout>
     </Layout>
