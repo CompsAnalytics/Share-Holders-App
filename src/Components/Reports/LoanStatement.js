@@ -1,43 +1,60 @@
 import React from 'react'
 import LoanStatementList from './LoanStatementList';
 import { useEffect,useState } from 'react';
+import axios from 'axios'
+const memberno =localStorage.getItem("member");
+const apiUrl='http://localhost:8080/api' ;
+const accessToken =localStorage.getItem("access");
+console.log("ACCESS TOKEN FROM LOCAL STORAGE ", accessToken)
+const authAxios =axios.create({
+  // baseUrl:'http://localhost:8080/api',
+  headers: {
+    Authorization:`Bearer ${accessToken}`,
+    
+  }
+})
 
-
-const LoanStatement = ({memNo}) => {
+const LoanStatement = () => {
     
     const [loans, setLoans] = useState([]);
     const [header, setHeader] = useState([]);
     const [member, setMember] = useState([]);
     useEffect(() =>{
-    fetch(`http://localhost:8080/api/v1/instant/${memNo}`)
-    .then((res) => {
-      if (res.ok) {
-      res.json().then((loans) => setLoans(loans));
-    } 
-    
-          
-        });
-    
-    },[])
-    
-    useEffect(() =>{
-      fetch("http://localhost:8080/api/v1/header")
+      authAxios.get(`${apiUrl}/v1/instant/${memberno}`)
       .then((res) => {
-        if (res.ok) {
-          res.json() .then((header) => setHeader(header));
-      } 
+        console.log('res header ', res.data)
+          setLoans(res.data.data);
+       
      
             
+          }).catch(error=>{
+            console.log(error);
           });
       
       },[])
+    
+      useEffect(() =>{
+        authAxios.get(`${apiUrl}/v1/header/1`)
+        .then((res) => {
+          console.log('res header ', res.data)
+            setHeader(res.data);
+         
+       
+              
+            }).catch(error=>{
+              console.log(error);
+            });
+        
+        },[])
        
       useEffect(()=> {
-        fetch("http://localhost:8001/member/1")
-        .then((response) => {
-            if (response.ok) {
-              response.json().then((member) => setMember(member));
-            }
+        authAxios.get(`${apiUrl}/v1/member/${memberno}`)
+        .then((res) => {
+          console.log('res member ', res.data)
+          // if (res.ok) {
+          setMember(res.data);
+          }).catch(error =>{
+            console.log(error);
           });
         },
     [])
@@ -51,7 +68,7 @@ const LoanStatement = ({memNo}) => {
                     <th className='full'>Member Statement Summary</th>
                     </tr>
                 <tr>
-                    <th >Name:{member.holders_name}</th>
+                    <th >Name:{member.holdersName}</th>
                     </tr>
                 </tbody>
             </table>
@@ -59,12 +76,12 @@ const LoanStatement = ({memNo}) => {
             <tbody>
            
                 <tr>
-                    <th className='half' >member_no:{member.acc_no}</th>
+                    <th className='half' >member_no:{member.accNo}</th>
                     <th className='half'>tel:{member.tel1}</th>
                     </tr>
                     <tr>
-                    <th>email:{member.email_add}</th>
-                    <th>Id no:{member.id_no}</th>
+                    <th>email:{member.emailAdd}</th>
+                    <th>Id no:{member.idNo}</th>
                     </tr>
                     </tbody>
                     </table>
@@ -103,24 +120,24 @@ const LoanStatement = ({memNo}) => {
               <h3 className="ui center aligned header">Original Amount</h3>
             </th>
             <th>
-              <h3 className="ui center aligned header">Debit</h3>
+              <h3 className="ui center aligned header">Balance</h3>
             </th>
-            <th>
+            {/* <th>
               <h3 className="ui center aligned header">Credits</h3>
-            </th>
+            </th> */}
           </tr> }
     
           {loans.map(loan => {
             return (
             <LoanStatementList
             key={loan.id}
-            id={loan.id}
-            loanno={loan.loan_no}
-            purpose={loan.purpose}
-            cdate={loan.cdate}
-            sdate={loan.sdate}
+            loanno={loan.loanNo}
+            purpose={loan.loanPurpose}
+            cdate={loan.startDate}
+            sdate={loan.endDate}
             period={loan.period}
             amount={loan.amount}
+            outstanding={loan.outStanding}
             />
           );
             }
