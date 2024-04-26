@@ -36,7 +36,7 @@ useEffect(() =>{
 },[])
 
 useEffect(() =>{
-  authAxios.get(`${apiUrl}/v1/header`)
+  authAxios.get(`${apiUrl}/v1/header/1`)
   .then((res) => {
     console.log('res header ', res.data)
       setHeader(res.data);
@@ -61,19 +61,17 @@ useEffect(() =>{
     },
 [])
 
+
   return (
     <div>
       {/* <p>header{header.header}</p> */}
         <table >
             <tbody>
             <tr   >
-              <th className='full'> header{header.header_name}</th>
-                
+               <th className='full'> <p>{header.organisationName}</p><break></break><p>Address:{header.boxNo} {header.postalCode}</p><p><break></break>Tel:{header.mainTelNo}{header.otherTelNo}</p><break></break>Email:{header.email} Website:{header.website}<p></p>
+                </th>  
                 </tr>
-                <tr   >
-              <th className='full'> member No{memberno}</th>
                 
-                </tr>
                 <tr   >
               
                 <th className='full'>Dividend Statement</th>
@@ -93,7 +91,7 @@ useEffect(() =>{
                 <th className='half'>tel:{member.tel1}</th>
                 </tr>
                 <tr>
-                <th>email:{member.emailAdd}</th>
+                 <th>email:{member.emailAdd}</th> 
                 <th>Id no:{member.idNo}</th>
                 </tr>
                 </tbody>

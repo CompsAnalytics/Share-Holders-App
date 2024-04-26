@@ -7,11 +7,12 @@ const Dividends = ({date,item,reference,dividend,paid}) => {
   return (
    <tr>
     
-    <td>{date}</td>
-    <td>{item}</td>
-    <td>{reference}</td>
-    <td>{dividend}</td>
-    <td>{paid}</td>
+    <th>{date}</th>
+    <th>{item}</th>
+    <th>{reference}</th>
+    <th>{dividend}</th>
+    <th>{paid}</th>
+    <th></th>
    </tr>
   )
 }
