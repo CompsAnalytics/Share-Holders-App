@@ -5,12 +5,13 @@ const ShareCapitalList = ({date,item,reference,receipt,wdrawn,savings}) => {
    
     <tr>
     
-    <td>{date}</td>
-    <td>{item}</td>
-    <td>{reference}</td>
-    <td>{receipt}</td>
-    <td>{wdrawn}</td>
-    <td>{savings}</td>
+    <th>{date}</th>
+    <th>{item}</th>
+    <th>{reference}</th>
+    <th>{receipt}</th>
+    <th>{wdrawn}</th>
+    <th>{savings}</th>
+    <th></th>
    </tr>
   )
 }

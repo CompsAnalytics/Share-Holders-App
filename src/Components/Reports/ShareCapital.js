@@ -1,5 +1,8 @@
 import React from 'react'
 import axios from 'axios'
+import ShareCapitalList from './ShareCapitalList';
+import { useEffect,useState } from 'react';
+import { saveAs } from "file-saver";
 
 const memberno =localStorage.getItem("member");
 const apiUrl='http://localhost:8080/api' ;
@@ -13,6 +16,12 @@ const authAxios =axios.create({
   }
 })
 const ShareCapital = () => {
+  const saveFile = () => {
+    saveAs(
+      "https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf",
+      "sharecapital.pdf"
+    );
+  };
 
   const [shares, setShares] = useState([]);
   const [header, setHeader] = useState([]);
@@ -37,7 +46,7 @@ const ShareCapital = () => {
   },[])
   
   useEffect(() =>{
-    authAxios.get(`${apiUrl}/v1/header`)
+    authAxios.get(`${apiUrl}/v1/header/1`)
     .then((res) => {
       console.log('res header ', res.data)
         setHeader(res.data);
@@ -68,7 +77,7 @@ const ShareCapital = () => {
           <table >
               <tbody>
               <tr   >
-                <th className='full'> header{header.header_name}</th>
+                <th className='full'> {header.header_name}</th>
                   
                   </tr>
                   <tr   >
@@ -77,7 +86,7 @@ const ShareCapital = () => {
                   </tr>
                   <tr   >
                 
-                  <th className='full'>Dividend Statement</th>
+                  <th className='full'>Share Capital Statement</th>
                   </tr>
                   
               <tr >
@@ -141,7 +150,7 @@ const ShareCapital = () => {
   
         {shares.map(share => {
           return ( 
-          <ShareStatementList
+          <ShareCapitalList
           key={share.id}
           date={share.date}
           item={share.item}
@@ -161,6 +170,7 @@ const ShareCapital = () => {
       
       </tbody>
     </table>
+    <button onClick={saveFile}>download</button>
     </div>
   );
     
