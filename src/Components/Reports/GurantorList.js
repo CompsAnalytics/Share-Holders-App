@@ -3,7 +3,7 @@ import { useEffect,useState } from 'react';
 import Gurantorship from './Gurantorship';
 import axios from 'axios'
 const memberno =localStorage.getItem("member");
-const apiUrl='http://localhost:8080/api' ;
+const apiUrl='http://192.168.4.6:8020/api' ;
 const accessToken =localStorage.getItem("access");
 console.log("ACCESS TOKEN FROM LOCAL STORAGE ", accessToken)
 const authAxios =axios.create({
@@ -110,30 +110,30 @@ useEffect(() =>{
     <tbody>
       { <tr >
         <th >
-          <h3 className="ui center aligned header">Date</h3>
+          <h3 >Date</h3>
         </th>
         <th>
-          <h3 className="ui center aligned header">Loan No</h3>
+          <h3 >Loan No</h3>
         </th>
         <th>
-          <h3 className="ui center aligned header">Loan type</h3>
+          <h3 >Loan type</h3>
 
         </th>
         <th>
-          <h3 className="ui center aligned header">Name</h3>
+          <h3 >Name</h3>
           
         </th>
         <th>
-          <h3 className="ui center aligned header">Loan Amount</h3>
+          <h3 >Loan Amount</h3>
         </th>
         <th>
-          <h3 className="ui center aligned header">Amt Guaranteed</h3>
+          <h3 >Amt Guaranteed</h3>
         </th>
         <th>
-          <h3 className="ui center aligned header">Loan Balance</h3>
+          <h3 >Loan Balance</h3>
         </th>
         <th>
-          <h3 className="ui center aligned header">Guarantor Level</h3>
+          <h3 >Guarantor Level</h3>
         </th>
         
       </tr> }

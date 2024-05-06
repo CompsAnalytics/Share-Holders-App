@@ -2,7 +2,7 @@ import React from 'react'
 import {useNavigate } from 'react-router-dom';
 import { useState} from 'react';
 //import {Link } from 'react-router-dom';
-const apiUrl='http://localhost:8080/api' ;
+const apiUrl='http://192.168.4.6:8020/api' ;
 
 const SignUp = () => {
   const [memNo, setMemNo] = useState("");

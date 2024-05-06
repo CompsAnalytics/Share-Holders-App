@@ -5,7 +5,7 @@ import { useEffect,useState } from 'react';
 import { saveAs } from "file-saver";
 
 const memberno =localStorage.getItem("member");
-const apiUrl='http://localhost:8080/api' ;
+const apiUrl='http://192.168.4.6:8020/api' ;
 const accessToken =localStorage.getItem("access");
 console.log("ACCESS TOKEN FROM LOCAL STORAGE ", accessToken)
 const authAxios =axios.create({
@@ -26,6 +26,7 @@ const ShareCapital = () => {
   const [shares, setShares] = useState([]);
   const [header, setHeader] = useState([]);
   const [member, setMember] = useState([]);
+  const [totalShareCapital,setTotalShareCapital]= useState([]);
   
   //${memberNo}
   useEffect(() =>{
@@ -70,7 +71,17 @@ const ShareCapital = () => {
         });
       },
   [])
-  
+  useEffect(()=> {
+    authAxios.get(`${apiUrl}/v1/shareCapital/sumTotal/${memberno}`)
+    .then((res) => {
+      console.log('res member ', res.data)
+      // if (res.ok) {
+        setTotalShareCapital(res.data);
+      }).catch(error =>{
+        console.log(error);
+      });
+    },
+  [])
     return (
       <div>
         {/* <p>header{header.header}</p> */}
@@ -122,27 +133,27 @@ const ShareCapital = () => {
       <tbody>
         { <tr >
           <th >
-            <h3 className="ui center aligned header">Date</h3>
+            <h3 >Date</h3>
           </th>
           <th>
-            <h3 className="ui center aligned header">Narration</h3>
+            <h3 >Narration</h3>
           </th>
           <th>
-            <h3 className="ui center aligned header">Ref</h3>
+            <h3>Ref</h3>
   
           </th>
           <th>
-            <h3 className="ui center aligned header">Account</h3>
+            <h3 >Account</h3>
             
           </th>
           <th>
-            <h3 className="ui center aligned header">Wdrawn</h3>
+            <h3 >Wdrawn</h3>
           </th>
           <th>
-            <h3 className="ui center aligned header">Savings</h3>
+            <h3 >Savings</h3>
           </th>
           <th>
-            <h3 className="ui center aligned header">Running Amt</h3>
+            <h3 >Running Amt</h3>
           </th>
           
         </tr> }
@@ -165,9 +176,29 @@ const ShareCapital = () => {
           } 
         )
       }
-      
-      
-      
+      <tr>
+      <th>
+            <h3 >Total Amount</h3>
+          </th>
+          <th>
+            <h3 ></h3>
+          </th>
+          <th>
+            <h3 ></h3>
+          </th>
+          <th>
+            <h3 ></h3>
+          </th>
+          <th>
+            <h3 ></h3>
+          </th>
+          <th>
+        <h3 >{totalShareCapital}</h3>
+          </th>
+          <th>
+        <h3 >{totalShareCapital}</h3>
+          </th>
+          </tr>
       </tbody>
     </table>
     <button onClick={saveFile}>download</button>

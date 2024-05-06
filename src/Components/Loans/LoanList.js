@@ -4,7 +4,7 @@ import './Loans.css';
 import axios from 'axios';
 import { useCallback } from "react";
 
-const apiUrl='http://localhost:8080/api' ;
+const apiUrl='192.168.4.6:8020/api' ;
 const accessToken =localStorage.getItem("access");
 console.log("ACCESS TOKEN FROM LOCAL STORAGE ", accessToken)
 const authAxios =axios.create({

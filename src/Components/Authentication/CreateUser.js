@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { LockOutlined } from '@ant-design/icons';
 import { Button,  Form, Input } from 'antd';
 import axios from 'axios';
-const apiUrl='http://localhost:8080/api' ;
+const apiUrl='http://192.168.4.6:8020/api' ;
 
 
 const layout = {

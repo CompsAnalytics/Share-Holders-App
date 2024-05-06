@@ -3,7 +3,7 @@ import LoanStatementList from './LoanStatementList';
 import { useEffect,useState } from 'react';
 import axios from 'axios'
 const memberno =localStorage.getItem("member");
-const apiUrl='http://localhost:8080/api' ;
+const apiUrl='http://192.168.4.6:8020/api' ;
 const accessToken =localStorage.getItem("access");
 console.log("ACCESS TOKEN FROM LOCAL STORAGE ", accessToken)
 const authAxios =axios.create({
@@ -100,27 +100,27 @@ const LoanStatement = () => {
         <tbody>
           { <tr>
             <th>
-              <h3 className="ui center aligned header">Loan No</h3>
+              <h3 >Loan No</h3>
             </th>
             <th>
-              <h3 className="ui center aligned header">Purpose</h3>
+              <h3 >Purpose</h3>
             </th>
             <th>
-              <h3 className="ui center aligned header">Sdate</h3>
+              <h3 >Sdate</h3>
     
             </th>
             <th>
-              <h3 className="ui center aligned header">Edate</h3>
+              <h3 >Edate</h3>
               
             </th>
             <th>
-              <h3 className="ui center aligned header">Period</h3>
+              <h3 >Period</h3>
             </th>
             <th>
-              <h3 className="ui center aligned header">Original Amount</h3>
+              <h3>Original Amount</h3>
             </th>
             <th>
-              <h3 className="ui center aligned header">Balance</h3>
+              <h3 >Balance</h3>
             </th>
             {/* <th>
               <h3 className="ui center aligned header">Credits</h3>

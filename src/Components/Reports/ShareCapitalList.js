@@ -11,6 +11,7 @@ const ShareCapitalList = ({date,item,reference,receipt,wdrawn,savings}) => {
     <th>{receipt}</th>
     <th>{wdrawn}</th>
     <th>{savings}</th>
+    <th>{savings}</th>
     <th></th>
    </tr>
   )

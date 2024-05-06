@@ -17,7 +17,8 @@ const ShareStatementList = ({date,item,reference,receipt,sold,bought}) => {
     <th>{receipt}</th>
     <th>{sold}</th>
     <th>{bought}</th>
-
+    <th>{bought}</th>
+     
     <th></th>
    </tr>
   )

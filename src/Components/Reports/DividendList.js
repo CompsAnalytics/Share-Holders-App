@@ -16,6 +16,7 @@ const DividendList = () => {
 const [dividends, setDividends] = useState([]);
 const [header, setHeader] = useState([]);
 const [member, setMember] = useState([]);
+const [sum, setSum] = useState(0);
 
 //${memberNo}
 useEffect(() =>{
@@ -110,25 +111,26 @@ useEffect(() =>{
     <tbody>
       { <tr >
         <th >
-          <h3 className="ui center aligned header">Date</h3>
+          <h3 >Date</h3>
         </th>
         <th>
-          <h3 className="ui center aligned header">Narration</h3>
+          <h3 >Narration</h3>
         </th>
         <th>
-          <h3 className="ui center aligned header">Ref</h3>
+          <h3 >Ref</h3>
 
         </th>
         <th>
-          <h3 className="ui center aligned header">Dividend</h3>
+          <h3>Dividend</h3>
           
         </th>
         <th>
-          <h3 className="ui center aligned header">Paid</h3>
+          <h3 >Paid</h3>
         </th>
         <th>
-          <h3 className="ui center aligned header">Running Amt</h3>
+          <h3 >Running Amt</h3>
         </th>
+        
         
       </tr> }
       
@@ -142,6 +144,11 @@ useEffect(() =>{
         reference={dividend.referenceNo}
         dividend={dividend.credit}
         paid={dividend.debit}
+        sumTotal={(dividend.credit-dividend.debit)}
+       
+       
+          
+          
        
         />
        );

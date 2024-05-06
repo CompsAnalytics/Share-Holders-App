@@ -4,7 +4,7 @@ import ShareStatementList from './ShareStatementList';
 import axios from 'axios'
 
 const memberno =localStorage.getItem("member");
-const apiUrl='http://localhost:8080/api' ;
+const apiUrl='http://192.168.4.6:8020/api' ;
 const accessToken =localStorage.getItem("access");
 console.log("ACCESS TOKEN FROM LOCAL STORAGE ", accessToken)
 const authAxios =axios.create({
@@ -19,6 +19,7 @@ const ShareStatement = () => {
   const [header, setHeader] = useState([]);
   const [member, setMember] = useState([]);
   const [sum, setSum] = useState([]);
+  const [totalSavings, setTotalSavings] = useState([]);
   
   //${memberNo}
   useEffect(() =>{
@@ -75,7 +76,17 @@ const ShareStatement = () => {
       });
     },
 [])
-  
+useEffect(()=> {
+  authAxios.get(`${apiUrl}/v1/savings/sumTotal/${memberno}`)
+  .then((res) => {
+    console.log('res member ', res.data)
+    // if (res.ok) {
+    setTotalSavings(res.data);
+    }).catch(error =>{
+      console.log(error);
+    });
+  },
+[])
     return (
       <div>
         {/* <p>header{header.header}</p> */}
@@ -125,27 +136,27 @@ const ShareStatement = () => {
       <tbody>
         { <tr >
           <th >
-            <h3 className="ui center aligned header">Date</h3>
+            <h3 >Date</h3>
           </th>
           <th>
-            <h3 className="ui center aligned header">Narration</h3>
+            <h3 >Narration</h3>
           </th>
           <th>
-            <h3 className="ui center aligned header">Ref</h3>
+            <h3 >Ref</h3>
   
           </th>
           <th>
-            <h3 className="ui center aligned header">Acoount</h3>
+            <h3 >Acoount</h3>
             
           </th>
           <th>
-            <h3 className="ui center aligned header">Sold</h3>
+            <h3 >Sold</h3>
           </th>
           <th>
-            <h3 className="ui center aligned header">Bought</h3>
+            <h3 >Bought</h3>
           </th>
           <th>
-            <h3 className="ui center aligned header">Running Amt</h3>
+            <h3 >Running Amt</h3>
           </th>
           
         </tr> }
@@ -153,27 +164,27 @@ const ShareStatement = () => {
         
          <tr >
           <th >
-            <h3 className="ui center aligned header">BAL/BF</h3>
+            <h3 >BAL/BF</h3>
           </th>
           <th>
-            <h3 className="ui center aligned header"></h3>
+            <h3 ></h3>
           </th>
           <th>
-            <h3 className="ui center aligned header"></h3>
+            <h3 ></h3>
   
           </th>
           <th>
-            <h3 className="ui center aligned header"></h3>
+            <h3></h3>
             
           </th>
           <th>
-            <h3 className="ui center aligned header"></h3>
+            <h3 ></h3>
           </th>
           <th>
-            <h3 className="ui center aligned header"></h3>
+            <h3 >{sum}</h3>
           </th>
           <th>
-            <h3 className="ui center aligned header">{sum}</h3>
+            <h3 >{sum}</h3>
           </th>
           
         </tr>
@@ -196,7 +207,29 @@ const ShareStatement = () => {
         )
       }
       
-      
+      <tr>
+      <th>
+            <h3 >Total Amount</h3>
+          </th>
+          <th>
+            <h3 ></h3>
+          </th>
+          <th>
+            <h3 ></h3>
+          </th>
+          <th>
+            <h3 ></h3>
+          </th>
+          <th>
+            <h3 ></h3>
+          </th>
+          <th>
+        <h3 >{totalSavings}</h3>
+          </th>
+          <th>
+        <h3 >{totalSavings}</h3>
+          </th>
+          </tr>
       
       </tbody>
     </table>
