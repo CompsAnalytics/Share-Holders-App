@@ -4,7 +4,7 @@ import ShareStatementList from './ShareStatementList';
 import axios from 'axios'
 
 const memberno =localStorage.getItem("member");
-const apiUrl='http://192.168.4.6:8020/api' ;
+//const apiUrl='http://192.168.4.6:8020/api' ;
 const accessToken =localStorage.getItem("access");
 console.log("ACCESS TOKEN FROM LOCAL STORAGE ", accessToken)
 const authAxios =axios.create({
@@ -23,7 +23,7 @@ const ShareStatement = () => {
   
   //${memberNo}
   useEffect(() =>{
-    authAxios.get(`${apiUrl}/v1/savings/${memberno}`)
+    authAxios.get(`/api/v1/savings/${memberno}`)
   .then((res) => {
     
     // if (res.ok) {
@@ -40,7 +40,7 @@ const ShareStatement = () => {
   },[])
   
   useEffect(() =>{
-    authAxios.get(`${apiUrl}/v1/header/1`)
+    authAxios.get(`/api/v1/header/1`)
     .then((res) => {
       console.log('res header ', res.data)
         setHeader(res.data);
@@ -54,7 +54,7 @@ const ShareStatement = () => {
     },[])
      
     useEffect(()=> {
-      authAxios.get(`${apiUrl}/v1/member/${memberno}`)
+      authAxios.get(`/api/v1/member/${memberno}`)
       .then((res) => {
         console.log('res member ', res.data)
         // if (res.ok) {
@@ -66,7 +66,7 @@ const ShareStatement = () => {
   [])
 
   useEffect(()=> {
-    authAxios.get(`${apiUrl}/v1/savings/sum/${memberno}`)
+    authAxios.get(`/api/v1/savings/sum/${memberno}`)
     .then((res) => {
       console.log('res member ', res.data)
       // if (res.ok) {
@@ -77,7 +77,7 @@ const ShareStatement = () => {
     },
 [])
 useEffect(()=> {
-  authAxios.get(`${apiUrl}/v1/savings/sumTotal/${memberno}`)
+  authAxios.get(`/api/v1/savings/sumTotal/${memberno}`)
   .then((res) => {
     console.log('res member ', res.data)
     // if (res.ok) {
@@ -167,18 +167,18 @@ useEffect(()=> {
             <h3 >BAL/BF</h3>
           </th>
           <th>
-            <h3 ></h3>
+           
           </th>
           <th>
-            <h3 ></h3>
+           
   
           </th>
           <th>
-            <h3></h3>
+          
             
           </th>
           <th>
-            <h3 ></h3>
+            
           </th>
           <th>
             <h3 >{sum}</h3>

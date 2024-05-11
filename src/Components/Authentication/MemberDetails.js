@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios'
 const memberno =localStorage.getItem("member");
-const apiUrl='http://192.168.4.6:8020/api' ;
+//const apiUrl='http://192.168.4.6:8020/api' ;
 const accessToken =localStorage.getItem("access");
 console.log("ACCESS TOKEN FROM LOCAL STORAGE ", accessToken)
 const authAxios =axios.create({
@@ -17,7 +17,7 @@ const MemberDetails = () => {
     const [totalDividendPayable,setTotalDividendPayable] = useState([])
     const [totalShareCapital,setTotalShareCapital] = useState([])
     useEffect(()=> {
-      authAxios.get(`${apiUrl}/v1/member/${memberno}`)
+      authAxios.get(`/api/v1/member/${memberno}`)
       .then((res) => {
         console.log('res member ', res.data)
         // if (res.ok) {
@@ -28,7 +28,7 @@ const MemberDetails = () => {
       },
   [])
   useEffect(()=> {
-    authAxios.get(`${apiUrl}/v1/savings/sumTotal/${memberno}`)
+    authAxios.get(`/api/v1/savings/sumTotal/${memberno}`)
     .then((res) => {
       console.log('res member ', res.data)
       // if (res.ok) {
@@ -40,7 +40,7 @@ const MemberDetails = () => {
 [])
 
 useEffect(()=> {
-  authAxios.get(`${apiUrl}/v1/dividendPayable/sumTotal/${memberno}`)
+  authAxios.get(`/api/v1/dividendPayable/sumTotal/${memberno}`)
   .then((res) => {
     console.log('res member ', res.data)
     // if (res.ok) {
@@ -52,7 +52,7 @@ useEffect(()=> {
 [])
 
 useEffect(()=> {
-  authAxios.get(`${apiUrl}/v1/shareCapital/sumTotal/${memberno}`)
+  authAxios.get(`/api/v1/shareCapital/sumTotal/${memberno}`)
   .then((res) => {
     console.log('res member ', res.data)
     // if (res.ok) {

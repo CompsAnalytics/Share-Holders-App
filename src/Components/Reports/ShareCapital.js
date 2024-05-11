@@ -5,7 +5,7 @@ import { useEffect,useState } from 'react';
 import { saveAs } from "file-saver";
 
 const memberno =localStorage.getItem("member");
-const apiUrl='http://192.168.4.6:8020/api' ;
+//const apiUrl='http://192.168.4.6:8020/api' ;
 const accessToken =localStorage.getItem("access");
 console.log("ACCESS TOKEN FROM LOCAL STORAGE ", accessToken)
 const authAxios =axios.create({
@@ -30,7 +30,7 @@ const ShareCapital = () => {
   
   //${memberNo}
   useEffect(() =>{
-    authAxios.get(`${apiUrl}/v1/shareCapital/${memberno}`)
+    authAxios.get(`/api/v1/shareCapital/${memberno}`)
   .then((res) => {
     
     // if (res.ok) {
@@ -47,7 +47,7 @@ const ShareCapital = () => {
   },[])
   
   useEffect(() =>{
-    authAxios.get(`${apiUrl}/v1/header/1`)
+    authAxios.get(`/api/v1/header/1`)
     .then((res) => {
       console.log('res header ', res.data)
         setHeader(res.data);
@@ -61,7 +61,7 @@ const ShareCapital = () => {
     },[])
      
     useEffect(()=> {
-      authAxios.get(`${apiUrl}/v1/member/${memberno}`)
+      authAxios.get(`/api/v1/member/${memberno}`)
       .then((res) => {
         console.log('res member ', res.data)
         // if (res.ok) {
@@ -72,7 +72,7 @@ const ShareCapital = () => {
       },
   [])
   useEffect(()=> {
-    authAxios.get(`${apiUrl}/v1/shareCapital/sumTotal/${memberno}`)
+    authAxios.get(`/api/v1/shareCapital/sumTotal/${memberno}`)
     .then((res) => {
       console.log('res member ', res.data)
       // if (res.ok) {
@@ -181,16 +181,16 @@ const ShareCapital = () => {
             <h3 >Total Amount</h3>
           </th>
           <th>
-            <h3 ></h3>
+            
           </th>
           <th>
-            <h3 ></h3>
+            
           </th>
           <th>
-            <h3 ></h3>
+            
           </th>
           <th>
-            <h3 ></h3>
+           
           </th>
           <th>
         <h3 >{totalShareCapital}</h3>
@@ -201,7 +201,7 @@ const ShareCapital = () => {
           </tr>
       </tbody>
     </table>
-    <button onClick={saveFile}>download</button>
+    {/* <button onClick={saveFile}>download</button> */}
     </div>
   );
     

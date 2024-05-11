@@ -13,7 +13,7 @@ const SignUp = () => {
   const navigate = useNavigate();
   function handleSubmit(e) {
     e.preventDefault();
-    fetch("http://192.168.4.6:8020/api/v1/auth/register", {
+    fetch("/api/v1/auth/register", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

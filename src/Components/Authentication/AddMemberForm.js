@@ -29,7 +29,7 @@ const AddMemberForm = () => {
   function handleSubmit(e){
     //e.preventDefault();
     console.log(e, " is the data")
-    fetch("http://localhost:8001/members",
+    fetch("/api/members",
     {
       method:'POST',
       headers: {

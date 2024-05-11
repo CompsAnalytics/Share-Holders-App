@@ -19,7 +19,7 @@ const Login = () => {
 
   const [form] = Form.useForm();
   function handleSubmit(e){
-    fetch("http://localhost:8080/api/v1/auth/authenticate",
+    fetch("/api/v1/auth/authenticate",
 
     {
       method: 'POST',

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { LockOutlined } from '@ant-design/icons';
 import { Button,  Form, Input } from 'antd';
 import axios from 'axios';
-const apiUrl='http://192.168.4.6:8020/api' ;
+//const apiUrl='http://192.168.4.6:8020/api' ;
 
 
 const layout = {
@@ -22,7 +22,7 @@ const CreateUser = () => {
     const [form] = Form.useForm();
     function handleSubmit(e) {
         e.preventDefault();
-        fetch(`${apiUrl}/v1/user/register`, {
+        fetch("api/v1/user/register", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
@@ -41,7 +41,7 @@ const CreateUser = () => {
       function sendToken(e) {
         e.preventDefault();
       
-        fetch(`${apiUrl}/v1/auth/registerOtp`, {
+        fetch("/api/v1/auth/registerOtp", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",

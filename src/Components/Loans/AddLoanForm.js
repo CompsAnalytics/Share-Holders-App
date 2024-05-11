@@ -2,13 +2,13 @@ import { Form, Input, InputNumber,Spin, Select, Space,AutoComplete} from 'antd';
 import { useState } from 'react';
 import React from 'react';
 import axios from 'axios'
-const apiUrl='http://localhost:8080/api' ;
+//const apiUrl='http://localhost:8080/api' ;
 const accessToken =localStorage.getItem("access");
 const memberno =localStorage.getItem("member");
 console.log("ACCESS TOKEN FROM LOCAL STORAGE ", accessToken)
 console.log("member ", memberno)
 const authAxios =axios.create({
-  baseUrl:apiUrl,
+  
   headers: {
     Authorization:`Bearer ${accessToken}`
   }
@@ -70,7 +70,7 @@ const AddLoanForm = () => {
   function handleSubmit(e){
     //e.preventDefault();
     console.log(e, " is the data")
-    authAxios.post(`/v1/loan`,e)
+    authAxios.post("/api/v1/loan",e)
     
     .then((r) => {
       if (r.ok) {

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import Dividends from "../Reports/Dividends";
 import axios from 'axios'
 const memberno =localStorage.getItem("member");
-const apiUrl='http://localhost:8080/api' ;
+//const apiUrl='http://192.168.4.6:8020/api' ;
 const accessToken =localStorage.getItem("access");
 console.log("ACCESS TOKEN FROM LOCAL STORAGE ", accessToken)
 const authAxios =axios.create({
@@ -16,11 +16,11 @@ const DividendList = () => {
 const [dividends, setDividends] = useState([]);
 const [header, setHeader] = useState([]);
 const [member, setMember] = useState([]);
-const [sum, setSum] = useState(0);
+//const [sum, setSum] = useState(0);
 
 //${memberNo}
 useEffect(() =>{
-  authAxios.get(`${apiUrl}/v1/dividendPayable/${memberno}`)
+  authAxios.get(`/api/v1/dividendPayable/${memberno}`)
 .then((res) => {
   
   // if (res.ok) {
@@ -37,7 +37,7 @@ useEffect(() =>{
 },[])
 
 useEffect(() =>{
-  authAxios.get(`${apiUrl}/v1/header/1`)
+  authAxios.get(`/api/v1/header/1`)
   .then((res) => {
     console.log('res header ', res.data)
       setHeader(res.data);
@@ -51,7 +51,7 @@ useEffect(() =>{
   },[])
    
   useEffect(()=> {
-    authAxios.get(`${apiUrl}/v1/member/${memberno}`)
+    authAxios.get(`/api/v1/member/${memberno}`)
     .then((res) => {
       console.log('res member ', res.data)
       // if (res.ok) {

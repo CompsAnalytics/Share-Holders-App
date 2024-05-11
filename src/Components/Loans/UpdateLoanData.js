@@ -6,8 +6,8 @@ import { useLocation } from 'react-router-dom'
 const UpdateLoanData = (onUpdateItem) => {
     const [data,setData] = useState([])
     const [memberno,setMemberNo] = useState("")
-    const [member,setMember] = useState("")
-    const [category,setCategory] = useState("")
+   const [member,setMember] = useState("")
+   const [category,setCategory] = useState("")
     const [amount,setAmount] = useState("")
     const [id,setId] = useState("")
     const location = useLocation();

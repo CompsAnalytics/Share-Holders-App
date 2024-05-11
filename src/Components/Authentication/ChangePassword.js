@@ -2,7 +2,7 @@ import React from 'react'
 import {useNavigate } from 'react-router-dom';
 import { useState} from 'react';
 //import {Link } from 'react-router-dom';
-const apiUrl='http://192.168.4.6:8020/api' ;
+//const apiUrl='http://192.168.4.6:8020/api' ;
 
 const SignUp = () => {
   const [memNo, setMemNo] = useState("");
@@ -12,7 +12,7 @@ const SignUp = () => {
   const navigate = useNavigate();
   function handleSubmit(e) {
     e.preventDefault();
-    fetch("`${apiUrl}/v1/auth/changePassword`", {
+    fetch("/api/v1/auth/changePassword", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -35,7 +35,7 @@ const SignUp = () => {
   function sendToken(e) {
     e.preventDefault();
   
-    fetch(`${apiUrl}/v1/auth/registerOtp`, {
+    fetch("/api/v1/auth/registerOtp", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

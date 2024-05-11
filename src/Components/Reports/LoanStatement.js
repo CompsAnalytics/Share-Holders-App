@@ -3,7 +3,7 @@ import LoanStatementList from './LoanStatementList';
 import { useEffect,useState } from 'react';
 import axios from 'axios'
 const memberno =localStorage.getItem("member");
-const apiUrl='http://192.168.4.6:8020/api' ;
+//const apiUrl='http://192.168.4.6:8020/api' ;
 const accessToken =localStorage.getItem("access");
 console.log("ACCESS TOKEN FROM LOCAL STORAGE ", accessToken)
 const authAxios =axios.create({
@@ -20,7 +20,7 @@ const LoanStatement = () => {
     const [header, setHeader] = useState([]);
     const [member, setMember] = useState([]);
     useEffect(() =>{
-      authAxios.get(`${apiUrl}/v1/instant/${memberno}`)
+      authAxios.get(`/api/v1/instant/${memberno}`)
       .then((res) => {
         console.log('res header ', res.data)
           setLoans(res.data.data);
@@ -34,7 +34,7 @@ const LoanStatement = () => {
       },[])
     
       useEffect(() =>{
-        authAxios.get(`${apiUrl}/v1/header/1`)
+        authAxios.get(`/api/v1/header/1`)
         .then((res) => {
           console.log('res header ', res.data)
             setHeader(res.data);
@@ -48,7 +48,7 @@ const LoanStatement = () => {
         },[])
        
       useEffect(()=> {
-        authAxios.get(`${apiUrl}/v1/member/${memberno}`)
+        authAxios.get(`/api/v1/member/${memberno}`)
         .then((res) => {
           console.log('res member ', res.data)
           // if (res.ok) {

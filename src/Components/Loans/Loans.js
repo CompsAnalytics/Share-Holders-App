@@ -1,5 +1,5 @@
-import {Link} from 'react-router-dom';
-import UpdateLoanData from './UpdateLoanData';
+//import {Link} from 'react-router-dom';
+//import UpdateLoanData from './UpdateLoanData';
 
 function Loan({id,memberno,member,category,amount,loan}) {
   // function handleDelete(){

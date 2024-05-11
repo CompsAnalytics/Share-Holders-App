@@ -3,10 +3,10 @@ import TextArea from "antd/lib/input/TextArea";
 import { useState } from "react";
 
 
-function Questions(props) {
+function Questions() {
    const [form] = Form.useForm();
-   const suggestions = props.suggestions;
-  const setSuggestion = props.setSuggestion;
+   //const suggestions = props.suggestions;
+ // const setSuggestion = props.setSuggestion;
    const [formData,setFormData] = useState({});
    //const [suggestion,setSuggestion] = useState({});
 
