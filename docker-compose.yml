@@ -1,10 +1,10 @@
-version: "3"
+version: "3.1"
 services:
-  metro-sacco-frontend:
+  frontend:
     build:
       context: .
       dockerfile: Dockerfile
     ports:
-      - "3020:3000"
+      - "3023:3000"
     environment:
       NODE_ENV: production
