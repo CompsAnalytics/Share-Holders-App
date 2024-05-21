@@ -6,23 +6,20 @@ const Navbar = () => {
   return (
     <div>
         <div className='nav-items'>
-            <div className='header'>
+            <div className='header1'>
                 {/* <img src={logo}/> */}
         <h1 className='th'>Metropolitan Hospital Sacco</h1>
         </div>
-        <div className='nav-buttons'>
-        <nav className='nav' >
+        <div >
+        <nav  >
            <ul>
-          <li><Link to ="/Login"><button className='bl'>Login</button></Link></li>  
-          <li> <Link to="/SignUp"> <button className='bs'>Create an account</button></Link></li> 
+          <li className='link'><Link to ="/Login"><button className='b1'>Login</button></Link></li>  
+          <li className='link'> <Link to="/SignUp"> <button className='bs'>Create an account</button></Link></li> 
           </ul> 
             </nav>
             </div>
         </div>
-        <div>
-                <h2 className='tw'>Metropolitan Hospital Sacco Portal</h2>
-            </div>
-        <div></div>
+        
         <Login/>
     </div>
   )
