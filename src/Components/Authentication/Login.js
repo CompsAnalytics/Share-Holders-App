@@ -1,6 +1,6 @@
 import { LockOutlined, UserOutlined } from '@ant-design/icons';
 import { Button, Checkbox, Form, Input } from 'antd';
-import DividendList from '../Reports/DividendList';
+
 import React from 'react';
 
 import {Link } from 'react-router-dom';
@@ -9,7 +9,7 @@ const layout = {
     span: 8,
   },
   wrapperCol: {
-    span: 24,
+    span: 23,
   },
 };
 const Login = () => {
@@ -62,7 +62,7 @@ const Login = () => {
     >
       <div className='login'>
         <div className='border'>
-          <label>Member No</label>
+          <label style={{marginLeft:'10px'}}>Member No</label>
       <Form.Item
       
         name="memberNo"
@@ -73,9 +73,9 @@ const Login = () => {
           },
         ]}
       >
-        <Input id='memberNo' autoComplete="off"  prefix={<UserOutlined className="site-form-item-icon" />} placeholder="Member No" />
+        <Input className='input' id='memberNo' autoComplete="off"  prefix={<UserOutlined className="site-form-item-icon" />} placeholder="Member No" />
       </Form.Item>
-      <label>Password</label>
+      <label style={{marginLeft:'10px'}}>Password</label>
       <Form.Item
         name="password"
         rules={[
@@ -85,31 +85,31 @@ const Login = () => {
           },
         ]}
       >
-        <Input
+        <Input className='input'
           prefix={<LockOutlined className="site-form-item-icon" />}
           type="password"
           placeholder="Password"
         />
       </Form.Item>
       <Form.Item>
-        <Form.Item name="remember" valuePropName="checked" noStyle>
-          <Checkbox>Remember me</Checkbox>
-        </Form.Item>
+      
+         
+        
 
-        <a className="login-form-forgot" href="/ChangePassword">
+        <a className="txt" href="/ChangePassword">
           Forgot password
         </a>
       </Form.Item>
 
       <Form.Item>
       
-        <Button type="primary" htmlType="submit" className="login-form-button"  >
+        <Button style={{background:'green',color:'white'}}  htmlType="submit" className="input"  >
         
           Log in
         </Button>
         
 
-        <Link to="/SignUp">  <a className="login-form-forgot" href="/SignUp">
+        <Link to="/SignUp">  <a className="txt" href="/SignUp">
           Register now!
         </a> </Link>
       </Form.Item>
