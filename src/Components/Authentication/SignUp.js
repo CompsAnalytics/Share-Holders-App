@@ -47,6 +47,7 @@ const SignUp = () => {
           autoComplete="off"
           value={memberNo}
           onChange={(e) => setMemberNo(e.target.value)}
+          
         />
         <label htmlFor="username">Mobile No</label>
         <input
