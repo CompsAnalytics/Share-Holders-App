@@ -11,17 +11,30 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
-.nav-items{
+/* .nav-items{
   display: flex;
   flex-direction: row;
   background-color:black;
-}
-.header{
-  margin-left: 50px;
+} */
+
+.nav-items{
+  padding: 5px 5%;
+  display: flex;
+  flex-direction: row;
+  /* align-items: centre; */
+   justify-content: space-between; 
+  flex-wrap: wrap;
+  background-color:black;
 }
 
 
-.nav li{
+ .header1{
+  /* margin-left: 50px; */
+  width :400px
+} 
+
+
+/* .nav li{
   list-style-type: none;
   display: inline-block;
   text-align: right; 
@@ -29,7 +42,19 @@ code {
   margin-left: 100px;
 
   
+} */
+
+.link{
+  display: inline-block;
+  list-style: none;
+  margin: 10px 20px;
+  text-decoration: none;
+  /* background-color: white; */
+  /* color: green; */
+  
 }
+
+
 
 .signup{
    margin-left: 35%;
@@ -50,9 +75,10 @@ code {
   margin-left: 35%;
   margin-right:25%;
   width: 30%;
-   margin-top: 5%; 
+   margin-top: 2%; 
    align-items: center; 
-   justify-content: center;  
+   justify-content: center; 
+   background-color: whitesmoke; 
  
   
 
@@ -88,7 +114,18 @@ table {
 }
 .txt{
   color: green;
+  padding: 10px;
  
+}
+.check{
+  color: green;
+  padding: 10px;
+ 
+}
+
+.input{
+ padding: 10px;
+ margin: 5px;
 }
 .tw{
   color: green;
@@ -110,6 +147,37 @@ table {
   color: black;
   
 }
+
+@media (max-width:940px) {
+  .link{
+    display: block;
+    list-style: none;
+    margin: 10px 20px;
+    text-decoration: none;
+    /* color: white; */
+    
+  }
+
+  .login{
+ 
+    margin-left: 35%;
+    margin-right:25%;
+    width: 50%;
+     margin-top: 2%; 
+     align-items: center; 
+     justify-content: center; 
+     background-color: whitesmoke; 
+   
+    
+  
+  } 
+
+  .input{
+    padding: 5px;
+    margin: 2px;
+  } 
+}
+
 /* .login-form-forgot{
   color: red;
 }
