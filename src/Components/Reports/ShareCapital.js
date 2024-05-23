@@ -85,74 +85,69 @@ const ShareCapital = () => {
     return (
       <div>
         {/* <p>header{header.header}</p> */}
-          <table >
-              <tbody>
-              <tr   >
-                <th className='full'> {header.header_name}</th>
-                  
-                  </tr>
-                  <tr   >
-                <th className='full'> member No{memberno}</th>
-                  
-                  </tr>
-                  <tr   >
-                
-                  <th className='full'>Share Capital Statement</th>
-                  </tr>
-                  
-              <tr >
-                  <th >Name:{member.holdersName}</th>
-                  
-                  </tr>
-              </tbody>
-          </table>
-      <table>
-          <tbody>
-         
-              <tr >
-                  <th className='half' >member_no:{member.accNo}</th>
-                  <th className='half'>tel:{member.tel1}</th>
-                  </tr>
-                  <tr>
-                  <th>email:{member.emailAdd}</th>
-                  <th>Id no:{member.idNo}</th>
-                  </tr>
-                  </tbody>
-                  </table>
-                  <table>
-                      <tbody>
-                  <tr>
-                  <th>Print Date</th>
-                  
-                  </tr>
-          </tbody>
-  
-      </table>
+
+        <h2>Share Capital Statement</h2>
+          
+     
      
       <table >
       <tbody>
+
+      
+      <tr >
+                  <th >Name:{member.holdersName}</th>
+                  <th  ></th>
+                  <th  ></th>
+                  <th  ></th>
+                  <th  ></th>
+                  <th  ></th>
+                  <th  ></th>
+                  </tr>
+                  <tr>
+                  <th >member_no:{member.accNo}</th>
+                  <th  ></th>
+                  <th  style={{borderRight:"1px solid"}} ></th>
+                  <th >tel:{member.tel1}</th>
+                  </tr>
+                  <tr>
+                  <th >email:{member.emailAdd}</th>
+                  <th  ></th>
+                  <th  style={{borderRight:"1px solid"}} ></th>
+                  <th>Id no:{member.idNo}</th>
+                  </tr>
+                 
+                  <tr>
+                  <th>Print Date</th>
+                  <th  ></th>
+                  <th  ></th>
+                  <th  ></th>
+                  <th  ></th>
+                  <th  ></th>
+                  <th  ></th>
+                  
+                  </tr>
         { <tr >
-          <th >
+          <th className='th1' >
             <h3 >Date</h3>
           </th>
-          <th>
+          <th className='th1'>
             <h3 >Narration</h3>
           </th>
-          <th>
+          <th className='th1'>
             <h3>Ref</h3>
   
           </th>
-          <th>
+          <th className='th1'>
             <h3 >Account</h3>
             
           </th>
-          <th>
+          <th className='th1'>
             <h3 >Wdrawn</h3>
           </th>
-          <th>
+          <th className='th1'>
             <h3 >Savings</h3>
           </th>
-          <th>
+          <th className='th1'>
             <h3 >Running Amt</h3>
           </th>
           
@@ -177,25 +172,25 @@ const ShareCapital = () => {
         )
       }
       <tr>
-      <th>
+      <th className='th1'>
             <h3 >Total Amount</h3>
           </th>
-          <th>
+          <th className='th1'>
             
           </th>
-          <th>
+          <th className='th1'>
             
           </th>
-          <th>
+          <th className='th1'>
             
           </th>
-          <th>
+          <th className='th1'>
            
           </th>
-          <th>
+          <th className='th1'>
         <h3 >{totalShareCapital}</h3>
           </th>
-          <th>
+          <th className='th1'>
         <h3 >{totalShareCapital}</h3>
           </th>
           </tr>

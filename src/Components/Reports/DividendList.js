@@ -65,69 +65,65 @@ useEffect(() =>{
 
   return (
     <div>
-      {/* <p>header{header.header}</p> */}
-        <table >
-            <tbody>
-            <tr   >
-               <th className='full'> <p>{header.organisationName}</p><break></break><p>Address:{header.boxNo} {header.postalCode}</p><p><break></break>Tel:{header.mainTelNo}{header.otherTelNo}</p><break></break>Email:{header.email} Website:{header.website}<p></p>
-                </th>  
-                </tr>
-                
-                <tr   >
-              
-                <th className='full'>Dividend Statement</th>
-                </tr>
-                
-            <tr >
-                <th >Name:{member.holdersName}</th>
-                
-                </tr>
-            </tbody>
-        </table>
-    <table>
-        <tbody>
+      <p>{header.organisationName}</p>
+       <h2>Dividend Statement</h2> 
        
-            <tr >
-                <th className='half' >member_no:{member.accNo}</th>
-                <th className='half'>tel:{member.tel1}</th>
-                </tr>
-                <tr>
-                 <th>email:{member.emailAdd}</th> 
-                <th>Id no:{member.idNo}</th>
-                </tr>
-                </tbody>
-                </table>
-                <table>
-                    <tbody>
-                <tr>
-                <th>Print Date</th>
+           
                 
-                </tr>
-        </tbody>
-
-    </table>
+              
+                
+           
+       
    
     <table >
     <tbody>
+
+    <tr >
+                <th >Name:{member.holdersName}</th>
+                
+                </tr>
+          
+  
+       
+            <tr >
+                <th  >member_no:{member.accNo}</th>
+                <th  ></th>
+                <th  style={{borderRight:"1px solid"}} ></th>
+
+                <th>tel:{member.tel1}</th>
+                
+                </tr>
+                <tr>
+                 <th>email:{member.emailAdd}</th> 
+                 <th  ></th>
+                <th  style={{borderRight:"1px solid"}} ></th>
+                <th>Id no:{member.idNo}</th>
+                </tr>
+               
+                
+                <tr>
+                <th>Print Date:</th>
+                
+                </tr>
       { <tr >
-        <th >
+        <th className='th1' >
           <h3 >Date</h3>
         </th>
-        <th>
+        <th className='th1'>
           <h3 >Narration</h3>
         </th>
-        <th>
+        <th className='th1'>
           <h3 >Ref</h3>
 
         </th>
-        <th>
+        <th className='th1'>
           <h3>Dividend</h3>
           
         </th>
-        <th>
+        <th className='th1'>
           <h3 >Paid</h3>
         </th>
-        <th>
+        <th className='th1'>
           <h3 >Running Amt</h3>
         </th>
         

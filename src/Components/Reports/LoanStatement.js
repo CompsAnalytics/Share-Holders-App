@@ -61,65 +61,65 @@ const LoanStatement = () => {
     
       return (
         <div>
-          <p>{header.header}</p>
-            <table >
-                <tbody>
-                <tr>
-                    <th className='full'>Member Statement Summary</th>
-                    </tr>
-                <tr>
-                    <th >Name:{member.holdersName}</th>
-                    </tr>
-                </tbody>
-            </table>
-        <table>
-            <tbody>
+          <h2>Member Statement Summary</h2>
+            
+                
+               
            
-                <tr>
-                    <th className='half' >member_no:{member.accNo}</th>
-                    <th className='half'>tel:{member.tel1}</th>
-                    </tr>
-                    <tr>
-                    <th>email:{member.emailAdd}</th>
-                    <th>Id no:{member.idNo}</th>
-                    </tr>
-                    </tbody>
-                    </table>
-                    <table>
-                        <tbody>
-                    <tr>
-                    <th>Print Date</th>
-                    <th>Shares</th>
-                    <th>Shares</th>
-                    </tr>
-            </tbody>
-    
-        </table>
        
         <table>
         <tbody>
+
+
+        <tr>
+                    <th >Name:{member.holdersName}</th>
+                    </tr>
+               
+       
+           
+                <tr>
+                    <th  >member_no:{member.accNo}</th>
+                    <th  ></th>
+                  <th  style={{borderRight:"1px solid"}} ></th>
+                    <th >tel:{member.tel1}</th>
+                    </tr>
+                    <tr>
+                    <th>email:{member.emailAdd}</th>
+                    <th  ></th>
+                  <th  style={{borderRight:"1px solid"}} ></th>
+                    <th>Id no:{member.idNo}</th>
+                    </tr>
+                   
+                    
+                    <tr>
+                    <th>Print Date</th>
+                    <th  ></th>
+                  <th  style={{borderRight:"1px solid"}} ></th>
+                    <th>Shares</th>
+                    
+                    </tr>
           { <tr>
-            <th>
+            <th className='th1'>
               <h3 >Loan No</h3>
             </th>
-            <th>
+            <th className='th1'>
               <h3 >Purpose</h3>
             </th>
-            <th>
+            <th className='th1'>
               <h3 >Sdate</h3>
     
             </th>
-            <th>
+            <th className='th1'>
               <h3 >Edate</h3>
               
             </th>
-            <th>
+            <th className='th1'>
               <h3 >Period</h3>
             </th>
-            <th>
+            <th className='th1'>
               <h3>Original Amount</h3>
             </th>
-            <th>
+            <th className='th1'>
               <h3 >Balance</h3>
             </th>
             {/* <th>

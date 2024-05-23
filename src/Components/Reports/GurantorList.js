@@ -65,74 +65,68 @@ useEffect(() =>{
 
   return (
     <div>
-      {/* <p>header{header.header}</p> */}
-        <table >
-            <tbody>
-            <tr   >
-               <th className='full'> <p>{header.organisationName}</p><break></break><p>Address:{header.boxNo} {header.postalCode}</p><p><break></break>Tel:{header.mainTelNo}{header.otherTelNo}</p><break></break>Email:{header.email} Website:{header.website}<p></p>
-                </th> 
-                </tr>
-                <tr   >
-              
-                <th className='full'>Guarantor Statement</th>
-                </tr>
+       <h2>Guarantor Statement</h2> 
+        
+           
                 
-            <tr >
+                
+           
+   
+    <table >
+    <tbody>
+
+    <tr >
                 <th >Name:{member.holdersName}</th>
                 
                 </tr>
-            </tbody>
-        </table>
-    <table>
-        <tbody>
+          
+   
        
             <tr >
-                <th className='half' >member_no:{member.accNo}</th>
-                <th className='half'>tel:{member.tel1}</th>
+                <th >member_no:{member.accNo}</th>
+                <th  ></th>
+                <th  ></th>
+                  <th  style={{borderRight:"1px solid"}} ></th>
+                <th >tel:{member.tel1}</th>
                 </tr>
                 <tr>
                  <th>email:{member.emailAdd}</th> 
+                 <th  ></th>
+                 <th  ></th>
+                  <th  style={{borderRight:"1px solid"}} ></th>
                 <th>Id no:{member.idNo}</th>
                 </tr>
-                </tbody>
-                </table>
-                <table>
-                    <tbody>
+                
+              
                 <tr>
                 <th>Print Date</th>
                 
                 </tr>
-        </tbody>
-
-    </table>
-   
-    <table >
-    <tbody>
       { <tr >
-        <th >
+        <th className='th1' >
           <h3 >Date</h3>
         </th>
-        <th>
+        <th className='th1'>
           <h3 >Loan No</h3>
         </th>
-        <th>
+        <th className='th1'>
           <h3 >Loan type</h3>
 
         </th>
-        <th>
+        <th className='th1'>
           <h3 >Name</h3>
           
         </th>
-        <th>
+        <th className='th1'>
           <h3 >Loan Amount</h3>
         </th>
-        <th>
+        <th className='th1'>
           <h3 >Amt Guaranteed</h3>
         </th>
-        <th>
+        <th className='th1'>
           <h3 >Loan Balance</h3>
         </th>
-        <th>
+        <th className='th1'>
           <h3 >Guarantor Level</h3>
         </th>
         
