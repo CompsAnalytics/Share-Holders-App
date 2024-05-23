@@ -90,21 +90,33 @@ code {
    border-radius: 10px;
   
 }
- table, th{
+
+
+
+.full th{
+  border: none;
+  text-align: left;
+}
+.half{
+    width: 50%;  
+  border: 1px solid;
+} 
+.main{
+  width:100%;
+}
+
+ table, .th1,tr{
   border: 1px solid;
 }
 
-.half{
-  width: 50%;
-}
+
+
 
 table {
-  width: 100%;
+  width: 100%; 
   text-align: left;
 }
-.full{
-  text-align: center;
-}
+
 .btns{
   display: block;
     padding: 5px; 
@@ -112,7 +124,7 @@ table {
     background-color: green;
     color: white;
 }
-.txt{
+.txt,.txt1{
   color: green;
   padding: 10px;
  
@@ -157,12 +169,19 @@ table {
     /* color: white; */
     
   }
+  .th{
+    font-size: 24px;
+  }
+  .txt{
+    font-size: 18px
+  }
 
   .login{
  
-    margin-left: 35%;
+    margin-left: 20%;
     margin-right:25%;
-    width: 50%;
+    width: 60%;
+    padding:10px;
      margin-top: 2%; 
      align-items: center; 
      justify-content: center; 
@@ -171,11 +190,34 @@ table {
     
   
   } 
+  .signup{
+    margin-left: 20%;
+    margin-right:25%;
+    width: 60%;
+    margin-top: 5%; 
+    align-items: center; 
+    justify-content: center;  
+   align-items: center;
+   border: 3px solid whitesmoke; 
+   border-radius: 10px;
+   
+ }
 
   .input{
     padding: 5px;
     margin: 2px;
-  } 
+  }
+  
+  
+ .head{
+  width:100%;
+ }
+  h2{
+    
+    font-size: 18px;
+   
+  }
+  
 }
 
 /* .login-form-forgot{
