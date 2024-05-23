@@ -11,32 +11,32 @@ const { Header, Content, Sider } = Layout;
 
 const Navbar = () => (
   <Layout>
-    <Header className="header" >
+    <Header className="header" style={{width: 1300}}>
       <div className="logo"  />
-      <Menu theme="dark" mode="horizontal" />
-      <NavLink    style={{
-          padding: '0 24px 24px', float: 'Left'
+      <Menu theme="dark" mode="horizontal"  />
+      <NavLink  className="navlink" style={{
+          padding: '0 24px 24px', float:"left"
         }} >Sacco Web App</NavLink>
-      <NavLink to="/AddLoanForm" style={{
+      {/* <NavLink to="/AddLoanForm" style={{
           padding: '0 24px 24px',
-        }}>Home</NavLink>
-      <NavLink to="/app/Notes" style={{
+        }}>Home</NavLink> */}
+      <NavLink className='hidden' to="/app/Notes" style={{
           padding: '0 24px 24px',
         }}>Notes</NavLink>
-      <NavLink to="/app/Questions" style={{
+      <NavLink className='hidden' to="/app/Questions" style={{
           padding: '0 24px 24px',
         }}>Questioners</NavLink>
         
-      <NavLink to="/" style={{
+      <NavLink  className='logbtn' to="/" style={{
           padding: '0 24px 24px', float: 'right'
         }}>Log Out</NavLink>
-        <NavLink 
-        >Member No  {memberno} <p id='memno' style={{
+        <NavLink   className='hidden'
+        >Member No {memberno} <p id='memno' style={{
           backgroundcolor: 'red',width:'10px'
         }} text/></NavLink>
     </Header>
     <Layout>
-      <Sider width={200} className="site-layout-background">
+      <Sider width={150} className="site-layout-background">
         <Menu
           mode="inline"
           //defaultSelectedKeys={['1']}
@@ -75,7 +75,7 @@ const Navbar = () => (
            <Link to="/app/DividendList"> Dividend List</Link>
           </Menu.Item>
           <Menu.Item>
-           <Link to="/app/LoanStatement"> Loan Statement List</Link>
+           <Link to="/app/LoanStatement"> Loan Stmt List</Link>
           </Menu.Item>
           <Menu.Item>
            <Link to="/app/GurantorList">Gurantor List</Link>
@@ -101,6 +101,7 @@ const Navbar = () => (
         <Content
           className="site-layout-background"
           style={{
+            width: 1000,
             padding: 24,
             margin: 0,
             minHeight: 280,
