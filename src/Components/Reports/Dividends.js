@@ -9,12 +9,12 @@ const Dividends = ({date,item,reference,dividend,paid,sumTotal}) => {
   return (
    <tr>
     
-    <th>{date}</th>
-    <th>{item}</th>
-    <th>{reference}</th>
-    <th>{dividend}</th>
-    <th>{paid}</th>
-    <th>{sumTotal}</th>
+    <th className='th1'>{date}</th>
+    <th className='th1'>{item}</th>
+    <th className='th1'>{reference}</th>
+    <th className='th1'>{dividend.toLocaleString("en-Ke")}</th>
+    <th className='th1'>{paid.toLocaleString("en-Ke")}</th>
+    <th className='th1'>{sumTotal.toLocaleString("en-Ke")}</th>
    
    </tr>
   )

@@ -20,7 +20,7 @@ const [member, setMember] = useState([]);
 
 //${memberNo}
 useEffect(() =>{
-  authAxios.get(`/api/v1/dividendPayable/${memberno}`)
+  authAxios.get(`/api/v1/dividend/${memberno}`)
 .then((res) => {
   
   // if (res.ok) {
@@ -86,15 +86,15 @@ useEffect(() =>{
   
        
             <tr >
-                <th  >member_no:{member.accNo}</th>
+                <th  >Member_no:{member.accNo}</th>
                 <th  ></th>
                 <th  style={{borderRight:"1px solid"}} ></th>
 
-                <th>tel:{member.tel1}</th>
+                <th>Tel:{member.tel1}</th>
                 
                 </tr>
                 <tr>
-                 <th>email:{member.emailAdd}</th> 
+                 <th>Email:{member.emailAdd}</th> 
                  <th  ></th>
                 <th  style={{borderRight:"1px solid"}} ></th>
                 <th>Id no:{member.idNo}</th>
@@ -134,13 +134,13 @@ useEffect(() =>{
       {dividends.map(dividend => {
         return ( 
         <Dividends
-        key={dividend.id}
-        date={dividend.date}
-        item={dividend.item}
-        reference={dividend.referenceNo}
-        dividend={dividend.credit}
-        paid={dividend.debit}
-        sumTotal={(dividend.credit-dividend.debit)}
+      
+        date={dividend.inputDate}
+        item={dividend.narration}
+        reference={dividend.refNo}
+        dividend={dividend.dividend}
+        paid={dividend.paid}
+        sumTotal={dividend.runningTotal}
        
        
           

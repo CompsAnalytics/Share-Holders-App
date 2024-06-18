@@ -108,13 +108,13 @@ useEffect(()=> {
                   </tr>
                
                   <tr>
-                  <th  >member_no:{member.accNo}</th>
+                  <th  >Member_no:{member.accNo}</th>
                   <th  ></th>
                   <th  style={{borderRight:"1px solid"}} ></th>
-                  <th >tel:{member.tel1}</th>
+                  <th >Tel:{member.tel1}</th>
                   </tr>
                   <tr>
-                  <th >email:{member.emailAdd}</th>
+                  <th >Email:{member.emailAdd}</th>
                   <th  ></th>
                   <th style={{borderRight:"1px solid"}}  ></th>
                   <th >Id no:{member.idNo}</th>
@@ -124,7 +124,7 @@ useEffect(()=> {
                   </tr>
         { <tr >
           <th className='th1'  >
-            <h3 >Date</h3>
+            <h3 >Input Date</h3>
           </th>
           <th className='th1'>
             <h3 >Narration</h3>
@@ -133,15 +133,9 @@ useEffect(()=> {
             <h3 >Ref</h3>
   
           </th>
+          
           <th className='th1'>
-            <h3 >Acoount</h3>
-            
-          </th>
-          <th className='th1'>
-            <h3 >Sold</h3>
-          </th>
-          <th className='th1'>
-            <h3 >Bought</h3>
+            <h3 >Savings</h3>
           </th>
           <th className='th1'>
             <h3 >Running Amt</h3>
@@ -150,44 +144,17 @@ useEffect(()=> {
         </tr> }
 
         
-         <tr >
-          <th className='th1' >
-            <h3 >BAL/BF</h3>
-          </th>
-          <th className='th1'>
-           
-          </th>
-          <th className='th1'>
-           
-  
-          </th>
-          <th className='th1'>
-          
-            
-          </th>
-          <th className='th1'>
-            
-          </th>
-          <th className='th1'>
-            <h3 >{sum}</h3>
-          </th>
-          <th className='th1'>
-            <h3 >{sum}</h3>
-          </th>
-          
-        </tr>
-        
+         
   
         {shares.map(share => {
           return ( 
           <ShareStatementList
-          key={share.id}
-          date={share.date}
-          item={share.item}
-          reference={share.referenceNo}
-          receipt={share.receiptNo}
-          bought={share.credit}
-          sold={share.debit}
+         // key={share.id}
+          date={share.inputDate}
+          item={share.narration}
+          reference={share.refNo}
+          savings={share.savings}
+          runningtotal={share.runningTotal}
          
           />
          );
@@ -202,20 +169,16 @@ useEffect(()=> {
           <th className='th1'>
             <h3 ></h3>
           </th>
+          
+         
           <th className='th1'>
             <h3 ></h3>
           </th>
           <th className='th1'>
-            <h3 ></h3>
+        <h3 >{totalSavings.toLocaleString("en-Ke")}</h3>
           </th>
           <th className='th1'>
-            <h3 ></h3>
-          </th>
-          <th className='th1'>
-        <h3 >{totalSavings}</h3>
-          </th>
-          <th className='th1'>
-        <h3 >{totalSavings}</h3>
+        <h3 >{totalSavings.toLocaleString("en-Ke")}</h3>
           </th>
           </tr>
       
