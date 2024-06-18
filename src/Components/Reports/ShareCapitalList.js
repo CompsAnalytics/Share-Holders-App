@@ -5,14 +5,14 @@ const ShareCapitalList = ({date,item,reference,receipt,wdrawn,savings}) => {
    
     <tr>
     
-    <th>{date}</th>
-    <th>{item}</th>
-    <th>{reference}</th>
-    <th>{receipt}</th>
-    <th>{wdrawn}</th>
-    <th>{savings}</th>
-    <th>{savings}</th>
-    <th></th>
+    <th className='th1'>{date}</th>
+    <th className='th1'>{item}</th>
+    <th className='th1'>{reference}</th>
+    <th className='th1'>{receipt}</th>
+    <th className='th1'>{wdrawn.toLocaleString("en-Ke")}</th>
+    <th className='th1'>{savings.toLocaleString("en-Ke")}</th>
+    <th className='th1'>{savings.toLocaleString("en-Ke")}</th>
+    <th className='th1'></th>
    </tr>
   )
 }

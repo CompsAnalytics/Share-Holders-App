@@ -1,5 +1,5 @@
 import React from 'react'
-import LoanStatementList from './LoanStatementList';
+import WithdrawableStatementList from './WithdrawableStatementList';
 import { useEffect,useState } from 'react';
 import axios from 'axios'
 const memberno =localStorage.getItem("member");
@@ -14,16 +14,16 @@ const authAxios =axios.create({
   }
 })
 
-const LoanStatement = () => {
+const WithdrawableStatement = () => {
     
-    const [loans, setLoans] = useState([]);
+    const [withdrwables, setWithdrwables] = useState([]);
     const [header, setHeader] = useState([]);
     const [member, setMember] = useState([]);
     useEffect(() =>{
-      authAxios.get(`/api/v1/instant/${memberno}`)
+      authAxios.get(`/api/v1/withDrawable/${memberno}`)
       .then((res) => {
         console.log('res header ', res.data)
-          setLoans(res.data.data);
+        setWithdrwables(res.data.data);
        
      
             
@@ -61,7 +61,7 @@ const LoanStatement = () => {
     
       return (
         <div>
-          <h2>Member Statement Summary</h2>
+          <h2>W/drawable DepositStatement </h2>
             
                 
                
@@ -73,71 +73,57 @@ const LoanStatement = () => {
 
         <tr>
                     <th >Name:{member.holdersName}</th>
+                    <th  style={{borderRight:"1px solid"}} ></th>
+                    <th>Print Date :{withdrwables.curDate}</th>
+                    
                     </tr>
                
        
            
                 <tr>
                     <th  >Member_no:{member.accNo}</th>
-                    <th  ></th>
+                    {/* <th  ></th> */}
                   <th  style={{borderRight:"1px solid"}} ></th>
                     <th >Tel:{member.tel1}</th>
                     </tr>
                     <tr>
                     <th>Email:{member.emailAdd}</th>
-                    <th  ></th>
+                    {/* <th  ></th> */}
                   <th  style={{borderRight:"1px solid"}} ></th>
                     <th>Id no:{member.idNo}</th>
                     </tr>
                    
                     
-                    <tr>
-                    <th>Print Date</th>
-                    <th  ></th>
-                  <th  style={{borderRight:"1px solid"}} ></th>
-                    <th>Shares</th>
                     
-                    </tr>
           { <tr>
             <th className='th1'>
-              <h3 >Loan No</h3>
+              <h3 >Acc No</h3>
             </th>
             <th className='th1'>
-              <h3 >Purpose</h3>
+              <h3 >Name</h3>
             </th>
             <th className='th1'>
-              <h3 >Sdate</h3>
+              <h3 >Reg date</h3>
     
             </th>
             <th className='th1'>
-              <h3 >Edate</h3>
+              <h3 >Total</h3>
               
             </th>
-            <th className='th1'>
-              <h3 >Period</h3>
-            </th>
-            <th className='th1'>
-              <h3>Original Amount</h3>
-            </th>
-            <th className='th1'>
-              <h3 >Balance</h3>
-            </th>
+            
             {/* <th>
               <h3 className="ui center aligned header">Credits</h3>
             </th> */}
           </tr> }
     
-          {loans.map(loan => {
+          {withdrwables.map(withdrwable => {
             return (
-            <LoanStatementList
-            key={loan.id}
-            loanno={loan.loanNo}
-            purpose={loan.loanPurpose}
-            cdate={loan.startDate}
-            sdate={loan.endDate}
-            period={loan.period}
-            amount={loan.amount}
-            outstanding={loan.outStanding}
+            <WithdrawableStatementList
+            
+            accno={withdrwable.accNo}
+            holdername={withdrwable.holdersName}
+            rdate={withdrwable.regDate}
+            outstanding={withdrwable.outStanding}
             />
           );
             }
@@ -152,4 +138,4 @@ const LoanStatement = () => {
     );
 }
 
-export default LoanStatement
+export default WithdrawableStatement

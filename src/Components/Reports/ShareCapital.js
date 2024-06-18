@@ -104,13 +104,13 @@ const ShareCapital = () => {
                   <th  ></th>
                   </tr>
                   <tr>
-                  <th >member_no:{member.accNo}</th>
+                  <th >Member_no:{member.accNo}</th>
                   <th  ></th>
                   <th  style={{borderRight:"1px solid"}} ></th>
-                  <th >tel:{member.tel1}</th>
+                  <th >Tel:{member.tel1}</th>
                   </tr>
                   <tr>
-                  <th >email:{member.emailAdd}</th>
+                  <th >Email:{member.emailAdd}</th>
                   <th  ></th>
                   <th  style={{borderRight:"1px solid"}} ></th>
                   <th>Id no:{member.idNo}</th>
@@ -188,10 +188,10 @@ const ShareCapital = () => {
            
           </th>
           <th className='th1'>
-        <h3 >{totalShareCapital}</h3>
+        <h3 >{totalShareCapital.toLocaleString("en-Ke")}</h3>
           </th>
           <th className='th1'>
-        <h3 >{totalShareCapital}</h3>
+        <h3 >{totalShareCapital.toLocaleString("en-Ke")}</h3>
           </th>
           </tr>
       </tbody>

@@ -83,14 +83,14 @@ useEffect(() =>{
    
        
             <tr >
-                <th >member_no:{member.accNo}</th>
+                <th >Member_no:{member.accNo}</th>
                 <th  ></th>
                 <th  ></th>
                   <th  style={{borderRight:"1px solid"}} ></th>
-                <th >tel:{member.tel1}</th>
+                <th >Tel:{member.tel1}</th>
                 </tr>
                 <tr>
-                 <th>email:{member.emailAdd}</th> 
+                 <th>Email:{member.emailAdd}</th> 
                  <th  ></th>
                  <th  ></th>
                   <th  style={{borderRight:"1px solid"}} ></th>
@@ -99,12 +99,12 @@ useEffect(() =>{
                 
               
                 <tr>
-                <th>Print Date</th>
+                <th>Print Date:{guarantors.curDate}</th>
                 
                 </tr>
       { <tr >
         <th className='th1' >
-          <h3 >Date</h3>
+          <h3 >Input Date</h3>
         </th>
         <th className='th1'>
           <h3 >Loan No</h3>
