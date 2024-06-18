@@ -1,34 +1,37 @@
 import React from 'react'
 import {useNavigate } from 'react-router-dom';
 import { useState} from 'react';
+import swal from "sweetalert";
 //import {Link } from 'react-router-dom';
 //const apiUrl='http://192.168.4.6:8020/api' ;
 
 const SignUp = () => {
-  const [memNo, setMemNo] = useState("");
+  const [memberNo, setMemberNo] = useState("");
   const [password, setPassword] = useState("");
   const [passwordConfirmation, setPasswordConfirmation] = useState("");
-  const [passKey, setPassKey] = useState("");
+  const [otp, setOtp] = useState("");
   const navigate = useNavigate();
   function handleSubmit(e) {
     e.preventDefault();
     fetch("/api/v1/auth/changePassword", {
-      method: "POST",
+      method: "PUT",
       headers: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        memNo,
-        passKey,
+        memberNo,
+        otp,
         password,
         password_confirmation: passwordConfirmation
         
       }),
     }).then((r) => {
       if (r.ok) {
-        alert("Password Changed Successfull")
-        navigate('/app')
+        swal("Password Changed Successfull","","success")
+        navigate('/')
         // r.json().then((user) => setUser(user));
+      }else{
+        swal("An Error Occured","","warning")
       }
     });
   }
@@ -40,13 +43,13 @@ const SignUp = () => {
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({memNo}),
+      body: JSON.stringify({memberNo}),
     }).then((r) => {
       if (r.ok) {
-        alert("Otp Sent Successfull")
+        swal("Otp Sent Successfull","","success")
        
       }else{
-        alert("An Error Occured")
+        swal("An Error Occured","","warning")
       }
     });
     
@@ -62,8 +65,8 @@ const SignUp = () => {
           id="memNo"
           autoComplete="off"
           required
-          value={memNo}
-          onChange={(e) => setMemNo(e.target.value)}
+          value={memberNo}
+          onChange={(e) => setMemberNo(e.target.value)}
         />
         <button className='btns' type="submit" onClick={sendToken}>Send Otp</button>
         <label htmlFor="username">OTP</label>
@@ -73,8 +76,8 @@ const SignUp = () => {
           id="passKey"
           autoComplete="off"
           required
-          value={passKey}
-          onChange={(e) => setPassKey(e.target.value)}
+          value={otp}
+          onChange={(e) => setOtp(e.target.value)}
         />
         
        

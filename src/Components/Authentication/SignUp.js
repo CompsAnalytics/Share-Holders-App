@@ -1,6 +1,7 @@
 import React from 'react'
 import {useNavigate } from 'react-router-dom';
 import { useState} from 'react';
+import swal from "sweetalert";
 //import {Link } from 'react-router-dom';
 
 const SignUp = () => {
@@ -28,9 +29,11 @@ const SignUp = () => {
       }),
     }).then((r) => {
       if (r.ok) {
-        alert("Registration Successfull")
+        swal("Registration Successfull","","success")
         navigate('/')
         // r.json().then((user) => setUser(user));
+      }else{
+        swal("An Error Occured","","warning")
       }
     });
   }

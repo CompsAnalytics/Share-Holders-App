@@ -1,9 +1,12 @@
 import { LockOutlined, UserOutlined } from '@ant-design/icons';
 import { Button, Checkbox, Form, Input } from 'antd';
+import { useState} from 'react';
 
 import React from 'react';
 
+
 import {Link } from 'react-router-dom';
+import swal from 'sweetalert';
 const layout = {
   labelCol: {
     span: 8,
@@ -13,6 +16,8 @@ const layout = {
   },
 };
 const Login = () => {
+  const [errors, setErrors] = useState("ERRORS")
+
   const onFinish = (values) => {
     console.log('Received values of form: ', values);
   };
@@ -30,18 +35,27 @@ const Login = () => {
       body:JSON.stringify(e)
 
     }).then((res) => res.json())
-    .then((data) => {
-      console.log("sign in res ", data);
-      localStorage.setItem('access', data.token);
-      localStorage.setItem('member', data.memberNo);
-     const memNo =data.memberNo;
-
-        alert("login Successful" );
+    .then((data) => { 
+      if(data.errors){
+        
+    
+        
+      
+      }else{
+        console.log("sign in res ", data);
+        localStorage.setItem('access', data.token);
+        localStorage.setItem('member', data.memberNo);
+        const memNo =data.memberNo;
+        swal("login Successful" ,"","success");
         window.location.replace("/app");
         let email=document.querySelector('#memberNo').value
         document.querySelector('#memno').value=memNo;
-    })
-    .catch(err => console.log(
+        
+      }
+    },swal("Error Occured" ,"","warning"))
+    
+      
+    .catch(err => (
       "There was an error logging in", err
     ))
     

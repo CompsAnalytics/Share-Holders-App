@@ -82,13 +82,13 @@ useEffect(()=> {
                   <th>Id no:{member.idNo}</th>
                   </tr>
                   <tr>
-                  <th> Savings:{totalSavings}</th>
+                  <th> Savings:{totalSavings.toLocaleString("en-Ke")}</th>
                   </tr>
                   <tr>
-                  <th> Share Capital:{totalShareCapital}</th>
+                  <th> Share Capital:{totalShareCapital.toLocaleString("en-Ke")}</th>
                   </tr>
                   <tr>
-                  <th> Dividend Payable:{totalDividendPayable}</th>
+                  <th> Dividend Payable:{totalDividendPayable.toLocaleString("en-Ke")}</th>
                   </tr>
                   </tbody>
                   </table>
