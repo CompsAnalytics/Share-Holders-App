@@ -30,13 +30,13 @@ const Navbar = () => (
       <NavLink  className='logbtn' to="/" style={{
           padding: '0 24px 24px', float: 'right'
         }}>Log Out</NavLink>
-        <NavLink   className='hidden'
+        <NavLink  
         >Member No {memberno} <p id='memno' style={{
           backgroundcolor: 'red',width:'10px'
         }} text/></NavLink>
     </Header>
     <Layout>
-      <Sider width={150} className="site-layout-background">
+      <Sider width={180} className="site-layout-background">
         <Menu
           mode="inline"
           //defaultSelectedKeys={['1']}
@@ -85,6 +85,12 @@ const Navbar = () => (
           </Menu.Item>
           <Menu.Item>
            <Link to="/app/ShareStatement">Share Statement</Link>
+          </Menu.Item>
+          <Menu.Item>
+           <Link to="/app/WithdrawableStatement">W/drawable Stmt</Link>
+          </Menu.Item>
+          <Menu.Item>
+           <Link to="/">Log 0ut</Link>
           </Menu.Item>
             </Menu>
 
